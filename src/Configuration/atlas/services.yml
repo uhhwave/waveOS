@@ -1,0 +1,74 @@
+---
+title: Services and Drivers
+description: Configures services and drivers to reduce background system resource utilization
+actions:
+  # ----------------------------------
+  # - Potential references           -
+  # - Mostly upon IoT recommandation -
+  # ----------------------------------
+  # https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-vdi-recommendations-2004
+  # https://learn.microsoft.com/en-us/windows-server/security/windows-services/security-guidelines-for-disabling-system-services-in-windows-server
+  # https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/optimize/services
+
+  # Back up default Windows serivces & drivers
+  - !powerShell:
+    command: >-
+      .\BACKUP.ps1 -FilePath """$([Environment]::GetFolderPath('Windows'))\AtlasModules\Other\winServices.reg"""
+    wait: true
+    exeDir: true
+
+  ##############################################################################################
+  ## SCRIPTS                                                                                  ##
+  ##############################################################################################
+
+  - !writeStatus: {status: 'Disabling Printing', option: 'disable-printing'}
+  - !cmd:
+    command: '"AtlasDesktop\3. General Configuration\Printing\Disable Printing.cmd" /silent'
+    option: 'disable-printing'
+    exeDir: true
+    wait: true
+  - !writeStatus: {status: 'Disabling Bluetooth', option: 'disable-bluetooth'}
+  - !cmd:
+    command: '"AtlasDesktop\3. General Configuration\Bluetooth\Disable Bluetooth.cmd" /silent'
+    option: 'disable-bluetooth'
+    exeDir: true
+    wait: true
+  - !writeStatus: {status: 'Disabling File Sharing'}
+  - !powerShell:
+    command: '.\AtlasModules\Scripts\ScriptWrappers\DisableFileSharing.ps1 -Silent'
+    exeDir: true
+    wait: true
+
+  ##############################################################################################
+  ## SERVICES                                                                                 ##
+  ##############################################################################################
+
+  - !writeStatus: {status: 'Configuring services'}
+
+    # ------ Microsoft recommendation - 'OK to disable' ------
+  - !service: {name: 'lfsvc', operation: change, startup: 4}
+  - !service: {name: 'MapsBroker', operation: change, startup: 4}
+  - !service: {name: 'OneSyncSvc', operation: change, startup: 4}
+  - !service: {name: 'TrkWks', operation: change, startup: 4}
+  - !service: {name: 'PcaSvc', operation: change, startup: 4}
+  - !service: {name: 'DiagTrack', operation: change, startup: 4}
+  - !service: {name: 'WSearch', operation: change, startup: 4}
+
+    # ------ Microsoft recommendation - 'Do not disable' -----
+  - !service: {name: 'diagnosticshub.standardcollector.service', operation: change, startup: 4}
+  - !service: {name: 'WerSvc', operation: change, startup: 4} 
+  - !service: {name: 'DispBrokerDesktopSvc', operation: change, startup: 4} 
+
+    # ------- Microsoft recommendation - 'No guideance' ------
+  - !service: {name: 'wercplsupport', operation: change, startup: 4}
+
+  ##############################################################################################
+  ## DRIVERS                                                                                  ##
+  ##############################################################################################
+
+  - !writeStatus: {status: 'Configuring drivers'}
+
+    # NetBios support can be enabled with the file sharing script
+  - !service: {name: 'GpuEnergyDrv', operation: change, startup: 4}
+  - !service: {name: 'NetBT', operation: change, startup: 4}
+  - !service: {name: 'Telemetry', operation: change, startup: 4}
