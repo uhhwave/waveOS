@@ -1,0 +1,20 @@
+---
+title: Disable Fault Tolerant Heap (FTH)
+description: FTH is a feature in Windows 7+ that applies mitigations (non-CPU related) to applications that repeatedly crash to prevent further crashes, but when the FTH is active for a certain application, there's a performance hit.
+actions:
+    # https://devblogs.microsoft.com/oldnewthing/20120125-00/?p=8463
+    # Document listed as only affected in Windows 7, is also in 7+
+    # https://docs.microsoft.com/en-us/windows/win32/win7appqual/fault-tolerant-heap
+    # https://www.3dcadworld.com/windows-7-fault-tolerant-heap-prevents-crashing/
+
+  - !powerShell:
+    command: >-
+      if (((Get-CimInstance -Class Win32_ComputerSystem).SystemType -match 'ARM64') -or ($env:PROCESSOR_ARCHITECTURE -eq 'ARM64')) {
+        Write-Output 'ARM detected, FTH doesn''t exist.';
+        Remove-Item -Path """$([Environment]::GetFolderPath('Windows'))\AtlasDesktop\7. Security\Mitigations\Fault Tolerant Heap""" -Force -Recurse;
+        exit 2000
+      };
+
+      Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\FTH' -Name 'Enabled' -Value 0 -Type DWORD;
+      rundll32.exe fthsvc.dll,FthSysprepSpecialize
+    wait: true

@@ -1,0 +1,36 @@
+= waveOS
+
+ waveOS is a customized version of the AtlasOS AME Playbook, created to eliminate unnecessary modifications such as altering the Profile Picture (PFP), wallpapers, and OEM information, aiming for a purer Windows experience.
+
+== ~ getting started ~
+
+=== Prerequisites
+
+Ensure you have the latest `.apbx` package from our <<Releases, Releases>> section.
+
+=== Installation
+
+Follow these steps to install waveOS:
+
+1. Download the latest `.apbx` package from the <<Releases, Releases>> section.
+2. Proceed with the installation instructions provided by https://docs.atlasos.net[AtlasOS].
+
+== ~ contributing ~
+
+Contributions are welcome, To contribute, please submit an issue or a pull request detailing your proposed changes or enhancements.
+
+== ~ acknowledgments ~
+
+waveOS is built because <<AtlasOS, AtlasOS>> exists, and we express our love and appreciation towards the AtlasOS team. While we appreciate their work, we chose to diverge in areas that cater to personal preferences regarding Windows modifications.
+
+== ~ license ~
+
+waveOS is licensed under the AGPL License. See the `LICENSE` file for details.
+
+== ~ contact ~
+
+For further inquiries or assistance, please reach out via our GitHub issues page.
+
+[[Releases]] link:https://github.com/13waves/waveOS/releases[Releases]
+-
+[[AtlasOS]] link:https://github.com/Atlas-OS/Atlas[AtlasOS]
