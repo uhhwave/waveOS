@@ -4,6 +4,19 @@ image::cute-cat-white.gif[]
 
 waveOS is a customized version of the AtlasOS AME Playbook, created to eliminate unnecessary modifications such as altering the Profile Picture, wallpapers, and OEM information, aiming for a purer Windows experience.
 
+== ~ what's changed ~
+
+* Requirements removed
+* Animations are enabled
+* Camera and alarm apps are untouched
+* No OEM information changed
+* Atlas theme isn't applied anymore, still available in settings if you want to use it
+* Custom themes are allowed now
+* UAC runs normally (with black screen/secure desktop)
+* PFP isn't changed
+* Amount of software installed by atlas is reduced
+
+
 == ~ getting started ~
 
 === Prerequisites
