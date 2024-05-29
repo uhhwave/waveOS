@@ -15,7 +15,7 @@ This playbook is not thorougly tested and may cause issues with your device. Use
 * No OEM information changed
 * Atlas theme isn't applied anymore, still available in settings if you want to use it
 * Custom themes are allowed now
-* UAC runs normally (with black screen/secure desktop)
+* UAC runs normally (with black screen/secure desktop), this option can be changed
 * PFP isn't changed
 * Amount of software installed by atlas is reduced
 
