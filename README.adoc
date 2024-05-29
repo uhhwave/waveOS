@@ -4,6 +4,9 @@ image::cute-cat-white.gif[]
 
 waveOS is a customized version of the AtlasOS AME Playbook, created to eliminate unnecessary modifications such as altering the Profile Picture, wallpapers, and OEM information, aiming for a purer Windows experience.
 
+== ~ disclaimer ~
+This playbook is not thorougly tested and may cause issues with your device. Use at your own risk. If you experience any problems, please report them in the issues section of this repository. You can also try reverting to the original AtlasOS AME Playbook if you encounter any issues.
+
 == ~ what's changed ~
 
 * Requirements removed
