@@ -231,6 +231,11 @@ tasks:
   - tweaks\qol\explorer\remove-context-menus\troubleshooting-compat.yml
   
   # -------------------------------------------------------------------------- #
+  #  qol\security                                                              #
+  # -------------------------------------------------------------------------- #
+  - tweaks\qol\security\disable-uac-secure-desktop.yml
+  
+  # -------------------------------------------------------------------------- #
   #  qol\shell                                                                 #
   # -------------------------------------------------------------------------- #
   - tweaks\qol\shell\alt-tab-open-windows.yml
