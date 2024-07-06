@@ -1,6 +1,7 @@
 ---
 title: Use Compact Mode
 description: Sets compact mode in File Explorer
+option: 'useCM'
 builds: [ '>=22000' ]
 actions:
   - !registryValue:
