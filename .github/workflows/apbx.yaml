@@ -172,13 +172,9 @@ jobs:
       - name: Artifact Release
         uses: softprops/action-gh-release@v1
         with:
-          name: Nightly {${{ needs.build_nightly.outputs.short_sha }}}
+          name: ~ Nightly ~
           tag_name: nightly
           body: |
             **This release has been built by GitHub Actions**
-            SHA256 Hash:
-            ```
-            ${{ steps.build_sha.outputs.build_sha }}
-            ```
           files: |
             "src/release-zip/waveOS Playbook.zip"
