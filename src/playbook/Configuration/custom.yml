@@ -3,8 +3,9 @@ title: Root Playbook File
 description: Runs all of the Playbook files
 actions:
   # AME Live Log
-  - !cmd: command: 'start "AME Wizard Live Log" PowerShell -NoP -C "$a = Join-Path (Get-ChildItem (Join-Path $([Environment]::GetFolderPath(''CommonApplicationData'')) ''\AME\Logs'') -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName ''\OutputBuffer.txt''; while ($true) { Get-Content -Wait -LiteralPath $a -EA 0 | Write-Output; Start-Sleep 1 }"'
-          option: liveLogON
+  - !cmd:
+    command: 'start "AME Wizard Live Log" PowerShell -NoP -C "$a = Join-Path (Get-ChildItem (Join-Path $([Environment]::GetFolderPath(''CommonApplicationData'')) ''\AME\Logs'') -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName ''\OutputBuffer.txt''; while ($true) { Get-Content -Wait -LiteralPath $a -EA 0 | Write-Output; Start-Sleep 1 }"'
+    option: liveLogON
   # Warn user if their Windows install is old
   - !powerShell:
     command: |
