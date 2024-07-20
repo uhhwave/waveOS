@@ -131,7 +131,7 @@ jobs:
             src/release-zip/*
           if-no-files-found: error
 
-      name: Delete Existing Release
+      - name: Delete Existing Release
         id: delete_release
         uses: actions/github-script@v6
         with:
