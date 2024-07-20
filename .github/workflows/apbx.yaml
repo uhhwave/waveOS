@@ -172,7 +172,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
-          name: binary  
+          name: "waveOS Playbook"
           
       - name: Artifact Release
         uses: softprops/action-gh-release@v1
@@ -186,4 +186,4 @@ jobs:
             ${{ steps.build_sha.outputs.build_sha }}
             ```
           files: |
-            waveOS Playbook.zip
+            "waveOS Playbook.zip"
