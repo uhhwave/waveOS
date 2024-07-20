@@ -168,11 +168,6 @@ jobs:
             } catch (error) {
               console.error(`Error deleting tag: ${error.message}`);
             }
-
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: "waveOS Playbook"
           
       - name: Artifact Release
         uses: softprops/action-gh-release@v1
@@ -187,3 +182,5 @@ jobs:
             ```
           files: |
             "waveOS Playbook.zip"
+          path: |
+            src/release-zip/*
