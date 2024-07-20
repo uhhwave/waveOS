@@ -105,8 +105,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "141822421+atlasos-admin@users.noreply.github.com"
-          git config --local user.name "atlasos-admin"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "feat: auto-update CAB packages ($($env:GITHUB_SHA.Substring(0, 8)))"
           git push
@@ -118,7 +118,7 @@ jobs:
         if: ${{ !startsWith(github.ref, 'refs/heads/na-') }}
         run: |
           echo "Making a renamed password protected (malte) ZIP of playbook files..."
-          $pbName = "Atlas Playbook $($env:GITHUB_SHA.Substring(0,8))"
+          $pbName = "waveOS Playbook $($env:GITHUB_SHA.Substring(0,8))"
           & ..\local-build.ps1 -ReplaceOldPlaybook -AddLiveLog -Removals Verification, WinverRequirement -FileName $pbName
           echo "Move the .apbx playbook into 'Release ZIP' to be released as an artifact with the additional files..."
           Move-Item "$pbName.apbx" "../release-zip"
@@ -128,7 +128,7 @@ jobs:
         uses: actions/upload-artifact@v4
         if: ${{ steps.create-pb.outcome != 'skipped' }}
         with:
-          name: Atlas Playbook
+          name: waveOS Playbook
           path: |
             src/release-zip/*
           if-no-files-found: error

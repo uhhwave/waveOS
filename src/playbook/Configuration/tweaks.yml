@@ -60,6 +60,9 @@ actions:
   # -------------------------------------------------------------------------- #
   - !task: {path: 'tweaks\performance\system\config-boot-config.yml'}
   # Disabled as there's no evidence it helps (likely placebo)
+  # note from wave: this could actually worsen system stability
+  # as the system is more likely to run out of ram quicker
+  # on low-end systems
   # - !task: {path: 'tweaks\performance\system\disable-paging.yml'}
   - !task: {path: 'tweaks\performance\system\optimize-ntfs.yml'}
   - !task: {path: 'tweaks\performance\system\disable-service-host-split.yml'}
@@ -161,7 +164,7 @@ actions:
   - !task: {path: 'tweaks\qol\do-not-reduce-sounds.yml'}
   - !task: {path: 'tweaks\qol\hide-disabled-disconnected-sounds.yml'}
   - !task: {path: 'tweaks\qol\show-all-tasks-control-panel.yml'}
-  - !task: {path: 'tweaks\qol\visual-effects.yml'}
+  # - !task: {path: 'tweaks\qol\visual-effects.yml'}
   - !task: {path: 'tweaks\qol\disable-tips.yml'}
   - !task: {path: 'tweaks\qol\disable-win11-settings-banner.yml'}
   - !task: {path: 'tweaks\qol\disable-screen-capture-hotkey.yml', option: 'remove-snipping-tool'}
@@ -172,8 +175,8 @@ actions:
   #  qol\appearance                                                            #
   # -------------------------------------------------------------------------- #
   - !task: {path: 'tweaks\qol\appearance\blue-tooltips.yml'}
-  - !task: {path: 'tweaks\qol\appearance\atlas-theme.yml'}
-  - !task: {path: 'tweaks\qol\appearance\disallow-theme-changes.yml'}
+  # - !task: {path: 'tweaks\qol\appearance\atlas-theme.yml'}
+  # - !task: {path: 'tweaks\qol\appearance\disallow-theme-changes.yml'}
 
   # -------------------------------------------------------------------------- #
   #  qol\windows-update                                                        #
@@ -337,7 +340,7 @@ actions:
   - !task: {path: 'tweaks\scripts\script-core-isolation.yml'}
   - !task: {path: 'tweaks\scripts\script-mitigations.yml'}
   - !task: {path: 'tweaks\scripts\script-devices.yml'}
-  - !task: {path: 'tweaks\scripts\script-pfp.yml'}
+  # - !task: {path: 'tweaks\scripts\script-pfp.yml'}
   - !task: {path: 'tweaks\scripts\script-backup2.yml'}
   - !task: {path: 'tweaks\scripts\script-clientcbs.yml'}
 

@@ -2,6 +2,7 @@
 title: Use Compact Mode
 description: Sets compact mode in File Explorer
 builds: [ '>=22000' ]
+option: useCM
 actions:
   - !registryValue:
     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'

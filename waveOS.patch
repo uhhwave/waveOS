@@ -1,0 +1,1557 @@
+diff --git a/.github/CODEOWNERS b/.github/CODEOWNERS
+index e1d7c495..8fea7c4e 100644
+--- a/.github/CODEOWNERS
++++ b/.github/CODEOWNERS
+@@ -1 +1 @@
+-* @he3als @xyueta
+\ No newline at end of file
++* @13waves
+\ No newline at end of file
+diff --git a/.github/CONTRIBUTING.md b/.github/CONTRIBUTING.md
+deleted file mode 100644
+index fc9860a8..00000000
+--- a/.github/CONTRIBUTING.md
++++ /dev/null
+@@ -1 +0,0 @@
+-Contribution Guidelines is on our [Documentation](https://docs.atlasos.net/contributions/).
+diff --git a/.github/ISSUE_TEMPLATE/bug_report.yml b/.github/ISSUE_TEMPLATE/bug_report.yml
+deleted file mode 100644
+index a8d27822..00000000
+--- a/.github/ISSUE_TEMPLATE/bug_report.yml
++++ /dev/null
+@@ -1,79 +0,0 @@
+-name: Bug report
+-description: Create a bug report to help us improve Atlas.
+-title: "[BUG] - "
+-
+-labels: 
+-- bug
+-
+-body:
+-- type: checkboxes
+-  attributes:
+-    label: Before continuing...
+-    description: Please ensure you meet the following criteria. If not, the maintainers reserve the right to close and lock your issue.
+-    options:
+-    - label: "I agree to follow Atlas' [Code of Conduct](https://github.com/Atlas-OS/.github/blob/main/profile/CODE_OF_CONDUCT.md)"
+-      required: true
+-    - label: "I have searched our [issue tracker](https://github.com/Atlas-OS/Atlas/issues?q=is%3Aissue) to verify that the issue hasn't been reported already"
+-      required: true
+-    - label: "I have searched the [Atlas documentation](https://docs.atlasos.net) beforehand for a solution"
+-      required: true
+-    - label: "I am on the latest version of Atlas, and didn't do an unsupported upgrade"
+-      required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Description
+-    description: A short description of the bug.
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Steps to reproduce
+-    description: The steps required to reproduce this bug (add screenshots if applicable).
+-    placeholder: |
+-      1. [First step] (Screenshot 1)
+-      2. [Second step] (Screenshot 2)
+-      3. [And so on...] (Screenshot X)
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Expected behavior
+-    description: What you expect to happen (add screenshots if applicable).
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Actual behavior
+-    description: What actually happened (add screenshots if applicable).
+-  validations:
+-    required: true
+-
+-- type: dropdown
+-  attributes:
+-    label: Atlas Edition
+-    options:
+-    - Atlas for Windows 10 22H2
+-    - Atlas for Windows 11 23H2
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Desktop information
+-    description: Your hardware specification is needed for us to define the problem.
+-    placeholder: |
+-      - Processor [include brand and specs]
+-      - RAM [include size and generation]
+-      - Storage [include size, brand, and type]
+-      - GPU [include brand, specs, driver version]
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Additional content
+-    description: Anything you want to add.
+diff --git a/.github/ISSUE_TEMPLATE/config.yml b/.github/ISSUE_TEMPLATE/config.yml
+deleted file mode 100644
+index 53e44106..00000000
+--- a/.github/ISSUE_TEMPLATE/config.yml
++++ /dev/null
+@@ -1,8 +0,0 @@
+-blank_issues_enabled: false
+-contact_links:
+-  - name: Report an issue about the Atlas Documentation
+-    url: https://github.com/Atlas-OS/docs/issues/
+-    about: Report all documentation issues in our 'docs' repository issue tracker.
+-  - name: Report a non-Atlas related issue
+-    url: https://forum.atlasos.net/t/atlas-bug-report
+-    about: Please report any non-Atlas Playbook related issue in the 'Bug Report' section on our forum (website, Discord bot, etc.).
+diff --git a/.github/ISSUE_TEMPLATE/feature_request.yml b/.github/ISSUE_TEMPLATE/feature_request.yml
+deleted file mode 100644
+index e8c72adb..00000000
+--- a/.github/ISSUE_TEMPLATE/feature_request.yml
++++ /dev/null
+@@ -1,58 +0,0 @@
+-name: Feature request
+-description: Create a feature request to help us improve Atlas.
+-title: "[FEATURE] - "
+-
+-labels:
+-- enhancement
+-
+-body:
+-- type: checkboxes
+-  attributes:
+-    label: Before continuing...
+-    description: Please ensure you meet the following criteria. If not, the maintainers reserve the right to close and lock your issue.
+-    options:
+-    - label: "I agree to follow Atlas' [Code of Conduct](https://github.com/Atlas-OS/.github/blob/main/profile/CODE_OF_CONDUCT.md)"
+-      required: true
+-    - label: "I have searched our [issue tracker](https://github.com/Atlas-OS/Atlas/issues?q=is%3Aissue) to verify that the issue hasn't been reported already"
+-      required: true
+-    - label: "I have searched the [Atlas documentation](https://docs.atlasos.net) beforehand for a solution"
+-      required: true
+-    - label: "I am on the latest version of Atlas, and didn't do an unsupported upgrade"
+-      required: true
+-
+-- type: dropdown
+-  attributes:
+-    label: What is your feature request regarding to?
+-    options:
+-    - Atlas Playbook
+-    - Other (submit it in https://forum.atlasos.net)
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Is your feature request related to a problem? Please describe.
+-    placeholder: |
+-      e.g. I always wanted Atlas to...
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Describe the solution you would like.
+-    placeholder: |
+-      e.g. I would like Atlas to add...
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Describe alternatives you have considered.
+-    description: If you have found a temporary fix, list it here.
+-  validations:
+-    required: true
+-
+-- type: textarea
+-  attributes:
+-    label: Additional context.
+-    description: Add any other context or screenshots about the feature request here.
+diff --git a/.github/SECURITY.md b/.github/SECURITY.md
+deleted file mode 100644
+index 87ba509b..00000000
+--- a/.github/SECURITY.md
++++ /dev/null
+@@ -1,11 +0,0 @@
+-## Security Policy
+-
+-### Vulnerability Reporting
+-
+-At Atlas, our primary objective is to provide an optimal equilibrium between security, performance, and usability.
+-
+-As Atlas is built on Windows, a proprietary operating system developed by Microsoft, we may not have solutions for security issues associated with Windows. Nonetheless, we are committed to addressing any security concerns caused by Atlas and welcome any enhancements made to the base Windows. We encourage the submission of GitHub issues and pull requests that relate to security vulnerabilities, as long as the solutions match our objective of having an equilibrium.
+-
+-Should you discover any security flaws linked to the Atlas-specific software/tools or [AME Wizard](https://ameliorated.io) (i.e., anything not related to Microsoft), kindly notify us immediately through the appropriate channels. For AME Wizard, please visit the [website](https://ameliorated.io) to identify suitable contacts. For all other issues, report them to the corresponding Atlas repository as an issue.
+-
+-Please note that some issues may not be rectifiable by us. If you come across a vulnerability in Atlas that is also present in the latest version of stock/vanilla Windows, please report it to Microsoft. For more information on reporting security vulnerabilities and pentesting, please visit the [Microsoft](https://www.microsoft.com/en-us/msrc/faqs-report-an-issue) website. We wish you the best of luck in your reporting endeavor.
+diff --git a/.github/pull_request_template.md b/.github/pull_request_template.md
+deleted file mode 100644
+index a585e08d..00000000
+--- a/.github/pull_request_template.md
++++ /dev/null
+@@ -1,6 +0,0 @@
+-### Questions
+-- [ ] Did you test your changes or double-check that they work?
+-- [ ] Did you read and follow the [Atlas Contribution Guidelines](https://docs.atlasos.net/contributions/)?
+-
+-### Describe your pull request
+-
+diff --git a/.github/workflows/apbx.yaml b/.github/workflows/apbx.yaml
+index e7380fc3..1afc3073 100644
+--- a/.github/workflows/apbx.yaml
++++ b/.github/workflows/apbx.yaml
+@@ -105,8 +105,8 @@ jobs:
+ 
+       - name: Commit and push changes
+         run: |
+-          git config --local user.email "141822421+atlasos-admin@users.noreply.github.com"
+-          git config --local user.name "atlasos-admin"
++          git config user.name "github-actions[bot]"
++          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+           git add -A
+           git commit -m "feat: auto-update CAB packages ($($env:GITHUB_SHA.Substring(0, 8)))"
+           git push
+@@ -118,7 +118,7 @@ jobs:
+         if: ${{ !startsWith(github.ref, 'refs/heads/na-') }}
+         run: |
+           echo "Making a renamed password protected (malte) ZIP of playbook files..."
+-          $pbName = "Atlas Playbook $($env:GITHUB_SHA.Substring(0,8))"
++          $pbName = "waveOS Playbook $($env:GITHUB_SHA.Substring(0,8))"
+           & ..\local-build.ps1 -ReplaceOldPlaybook -AddLiveLog -Removals Verification, WinverRequirement -FileName $pbName
+           echo "Move the .apbx playbook into 'Release ZIP' to be released as an artifact with the additional files..."
+           Move-Item "$pbName.apbx" "../release-zip"
+@@ -128,7 +128,7 @@ jobs:
+         uses: actions/upload-artifact@v4
+         if: ${{ steps.create-pb.outcome != 'skipped' }}
+         with:
+-          name: Atlas Playbook
++          name: waveOS Playbook
+           path: |
+             src/release-zip/*
+           if-no-files-found: error
+diff --git a/.gitignore b/.gitignore
+index 0bb1e819..ee8ea0a0 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -2,4 +2,47 @@
+ .DS_Store
+ 
+ # Playbooks
+-*.apbx
+\ No newline at end of file
++*.apbx
++
++# ---------------
++.idea/**/workspace.xml
++.idea/**/tasks.xml
++.idea/**/usage.statistics.xml
++.idea/**/dictionaries
++.idea/**/shelf
++.idea/**/aws.xml
++.idea/**/contentModel.xml
++.idea/**/dataSources/
++.idea/**/dataSources.ids
++.idea/**/dataSources.local.xml
++.idea/**/sqlDataSources.xml
++.idea/**/dynamic.xml
++.idea/**/uiDesigner.xml
++.idea/**/dbnavigator.xml
++.idea/**/gradle.xml
++.idea/**/libraries
++cmake-build-*/
++.idea/**/mongoSettings.xml
++*.iws
++out/
++.idea_modules/
++atlassian-ide-plugin.xml
++.idea/replstate.xml
++.idea/sonarlint/
++com_crashlytics_export_strings.xml
++crashlytics.properties
++crashlytics-build.properties
++fabric.properties
++.idea/httpRequests
++.idea/caches/build_file_checksums.ser
++*~
++.fuse_hidden*
++.directory
++.Trash-*
++.nfs*
++.hg/
++.hgignore
++.hgsigs
++.hgsub
++.hgsubstate
++.hgtags
+diff --git a/FUNDING.yml b/FUNDING.yml
+deleted file mode 100644
+index a496c4ad..00000000
+--- a/FUNDING.yml
++++ /dev/null
+@@ -1 +0,0 @@
+-ko_fi: atlasos
+diff --git a/LICENSE b/LICENSE
+deleted file mode 100644
+index f288702d..00000000
+--- a/LICENSE
++++ /dev/null
+@@ -1,674 +0,0 @@
+-                    GNU GENERAL PUBLIC LICENSE
+-                       Version 3, 29 June 2007
+-
+- Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+- Everyone is permitted to copy and distribute verbatim copies
+- of this license document, but changing it is not allowed.
+-
+-                            Preamble
+-
+-  The GNU General Public License is a free, copyleft license for
+-software and other kinds of works.
+-
+-  The licenses for most software and other practical works are designed
+-to take away your freedom to share and change the works.  By contrast,
+-the GNU General Public License is intended to guarantee your freedom to
+-share and change all versions of a program--to make sure it remains free
+-software for all its users.  We, the Free Software Foundation, use the
+-GNU General Public License for most of our software; it applies also to
+-any other work released this way by its authors.  You can apply it to
+-your programs, too.
+-
+-  When we speak of free software, we are referring to freedom, not
+-price.  Our General Public Licenses are designed to make sure that you
+-have the freedom to distribute copies of free software (and charge for
+-them if you wish), that you receive source code or can get it if you
+-want it, that you can change the software or use pieces of it in new
+-free programs, and that you know you can do these things.
+-
+-  To protect your rights, we need to prevent others from denying you
+-these rights or asking you to surrender the rights.  Therefore, you have
+-certain responsibilities if you distribute copies of the software, or if
+-you modify it: responsibilities to respect the freedom of others.
+-
+-  For example, if you distribute copies of such a program, whether
+-gratis or for a fee, you must pass on to the recipients the same
+-freedoms that you received.  You must make sure that they, too, receive
+-or can get the source code.  And you must show them these terms so they
+-know their rights.
+-
+-  Developers that use the GNU GPL protect your rights with two steps:
+-(1) assert copyright on the software, and (2) offer you this License
+-giving you legal permission to copy, distribute and/or modify it.
+-
+-  For the developers' and authors' protection, the GPL clearly explains
+-that there is no warranty for this free software.  For both users' and
+-authors' sake, the GPL requires that modified versions be marked as
+-changed, so that their problems will not be attributed erroneously to
+-authors of previous versions.
+-
+-  Some devices are designed to deny users access to install or run
+-modified versions of the software inside them, although the manufacturer
+-can do so.  This is fundamentally incompatible with the aim of
+-protecting users' freedom to change the software.  The systematic
+-pattern of such abuse occurs in the area of products for individuals to
+-use, which is precisely where it is most unacceptable.  Therefore, we
+-have designed this version of the GPL to prohibit the practice for those
+-products.  If such problems arise substantially in other domains, we
+-stand ready to extend this provision to those domains in future versions
+-of the GPL, as needed to protect the freedom of users.
+-
+-  Finally, every program is threatened constantly by software patents.
+-States should not allow patents to restrict development and use of
+-software on general-purpose computers, but in those that do, we wish to
+-avoid the special danger that patents applied to a free program could
+-make it effectively proprietary.  To prevent this, the GPL assures that
+-patents cannot be used to render the program non-free.
+-
+-  The precise terms and conditions for copying, distribution and
+-modification follow.
+-
+-                       TERMS AND CONDITIONS
+-
+-  0. Definitions.
+-
+-  "This License" refers to version 3 of the GNU General Public License.
+-
+-  "Copyright" also means copyright-like laws that apply to other kinds of
+-works, such as semiconductor masks.
+-
+-  "The Program" refers to any copyrightable work licensed under this
+-License.  Each licensee is addressed as "you".  "Licensees" and
+-"recipients" may be individuals or organizations.
+-
+-  To "modify" a work means to copy from or adapt all or part of the work
+-in a fashion requiring copyright permission, other than the making of an
+-exact copy.  The resulting work is called a "modified version" of the
+-earlier work or a work "based on" the earlier work.
+-
+-  A "covered work" means either the unmodified Program or a work based
+-on the Program.
+-
+-  To "propagate" a work means to do anything with it that, without
+-permission, would make you directly or secondarily liable for
+-infringement under applicable copyright law, except executing it on a
+-computer or modifying a private copy.  Propagation includes copying,
+-distribution (with or without modification), making available to the
+-public, and in some countries other activities as well.
+-
+-  To "convey" a work means any kind of propagation that enables other
+-parties to make or receive copies.  Mere interaction with a user through
+-a computer network, with no transfer of a copy, is not conveying.
+-
+-  An interactive user interface displays "Appropriate Legal Notices"
+-to the extent that it includes a convenient and prominently visible
+-feature that (1) displays an appropriate copyright notice, and (2)
+-tells the user that there is no warranty for the work (except to the
+-extent that warranties are provided), that licensees may convey the
+-work under this License, and how to view a copy of this License.  If
+-the interface presents a list of user commands or options, such as a
+-menu, a prominent item in the list meets this criterion.
+-
+-  1. Source Code.
+-
+-  The "source code" for a work means the preferred form of the work
+-for making modifications to it.  "Object code" means any non-source
+-form of a work.
+-
+-  A "Standard Interface" means an interface that either is an official
+-standard defined by a recognized standards body, or, in the case of
+-interfaces specified for a particular programming language, one that
+-is widely used among developers working in that language.
+-
+-  The "System Libraries" of an executable work include anything, other
+-than the work as a whole, that (a) is included in the normal form of
+-packaging a Major Component, but which is not part of that Major
+-Component, and (b) serves only to enable use of the work with that
+-Major Component, or to implement a Standard Interface for which an
+-implementation is available to the public in source code form.  A
+-"Major Component", in this context, means a major essential component
+-(kernel, window system, and so on) of the specific operating system
+-(if any) on which the executable work runs, or a compiler used to
+-produce the work, or an object code interpreter used to run it.
+-
+-  The "Corresponding Source" for a work in object code form means all
+-the source code needed to generate, install, and (for an executable
+-work) run the object code and to modify the work, including scripts to
+-control those activities.  However, it does not include the work's
+-System Libraries, or general-purpose tools or generally available free
+-programs which are used unmodified in performing those activities but
+-which are not part of the work.  For example, Corresponding Source
+-includes interface definition files associated with source files for
+-the work, and the source code for shared libraries and dynamically
+-linked subprograms that the work is specifically designed to require,
+-such as by intimate data communication or control flow between those
+-subprograms and other parts of the work.
+-
+-  The Corresponding Source need not include anything that users
+-can regenerate automatically from other parts of the Corresponding
+-Source.
+-
+-  The Corresponding Source for a work in source code form is that
+-same work.
+-
+-  2. Basic Permissions.
+-
+-  All rights granted under this License are granted for the term of
+-copyright on the Program, and are irrevocable provided the stated
+-conditions are met.  This License explicitly affirms your unlimited
+-permission to run the unmodified Program.  The output from running a
+-covered work is covered by this License only if the output, given its
+-content, constitutes a covered work.  This License acknowledges your
+-rights of fair use or other equivalent, as provided by copyright law.
+-
+-  You may make, run and propagate covered works that you do not
+-convey, without conditions so long as your license otherwise remains
+-in force.  You may convey covered works to others for the sole purpose
+-of having them make modifications exclusively for you, or provide you
+-with facilities for running those works, provided that you comply with
+-the terms of this License in conveying all material for which you do
+-not control copyright.  Those thus making or running the covered works
+-for you must do so exclusively on your behalf, under your direction
+-and control, on terms that prohibit them from making any copies of
+-your copyrighted material outside their relationship with you.
+-
+-  Conveying under any other circumstances is permitted solely under
+-the conditions stated below.  Sublicensing is not allowed; section 10
+-makes it unnecessary.
+-
+-  3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+-
+-  No covered work shall be deemed part of an effective technological
+-measure under any applicable law fulfilling obligations under article
+-11 of the WIPO copyright treaty adopted on 20 December 1996, or
+-similar laws prohibiting or restricting circumvention of such
+-measures.
+-
+-  When you convey a covered work, you waive any legal power to forbid
+-circumvention of technological measures to the extent such circumvention
+-is effected by exercising rights under this License with respect to
+-the covered work, and you disclaim any intention to limit operation or
+-modification of the work as a means of enforcing, against the work's
+-users, your or third parties' legal rights to forbid circumvention of
+-technological measures.
+-
+-  4. Conveying Verbatim Copies.
+-
+-  You may convey verbatim copies of the Program's source code as you
+-receive it, in any medium, provided that you conspicuously and
+-appropriately publish on each copy an appropriate copyright notice;
+-keep intact all notices stating that this License and any
+-non-permissive terms added in accord with section 7 apply to the code;
+-keep intact all notices of the absence of any warranty; and give all
+-recipients a copy of this License along with the Program.
+-
+-  You may charge any price or no price for each copy that you convey,
+-and you may offer support or warranty protection for a fee.
+-
+-  5. Conveying Modified Source Versions.
+-
+-  You may convey a work based on the Program, or the modifications to
+-produce it from the Program, in the form of source code under the
+-terms of section 4, provided that you also meet all of these conditions:
+-
+-    a) The work must carry prominent notices stating that you modified
+-    it, and giving a relevant date.
+-
+-    b) The work must carry prominent notices stating that it is
+-    released under this License and any conditions added under section
+-    7.  This requirement modifies the requirement in section 4 to
+-    "keep intact all notices".
+-
+-    c) You must license the entire work, as a whole, under this
+-    License to anyone who comes into possession of a copy.  This
+-    License will therefore apply, along with any applicable section 7
+-    additional terms, to the whole of the work, and all its parts,
+-    regardless of how they are packaged.  This License gives no
+-    permission to license the work in any other way, but it does not
+-    invalidate such permission if you have separately received it.
+-
+-    d) If the work has interactive user interfaces, each must display
+-    Appropriate Legal Notices; however, if the Program has interactive
+-    interfaces that do not display Appropriate Legal Notices, your
+-    work need not make them do so.
+-
+-  A compilation of a covered work with other separate and independent
+-works, which are not by their nature extensions of the covered work,
+-and which are not combined with it such as to form a larger program,
+-in or on a volume of a storage or distribution medium, is called an
+-"aggregate" if the compilation and its resulting copyright are not
+-used to limit the access or legal rights of the compilation's users
+-beyond what the individual works permit.  Inclusion of a covered work
+-in an aggregate does not cause this License to apply to the other
+-parts of the aggregate.
+-
+-  6. Conveying Non-Source Forms.
+-
+-  You may convey a covered work in object code form under the terms
+-of sections 4 and 5, provided that you also convey the
+-machine-readable Corresponding Source under the terms of this License,
+-in one of these ways:
+-
+-    a) Convey the object code in, or embodied in, a physical product
+-    (including a physical distribution medium), accompanied by the
+-    Corresponding Source fixed on a durable physical medium
+-    customarily used for software interchange.
+-
+-    b) Convey the object code in, or embodied in, a physical product
+-    (including a physical distribution medium), accompanied by a
+-    written offer, valid for at least three years and valid for as
+-    long as you offer spare parts or customer support for that product
+-    model, to give anyone who possesses the object code either (1) a
+-    copy of the Corresponding Source for all the software in the
+-    product that is covered by this License, on a durable physical
+-    medium customarily used for software interchange, for a price no
+-    more than your reasonable cost of physically performing this
+-    conveying of source, or (2) access to copy the
+-    Corresponding Source from a network server at no charge.
+-
+-    c) Convey individual copies of the object code with a copy of the
+-    written offer to provide the Corresponding Source.  This
+-    alternative is allowed only occasionally and noncommercially, and
+-    only if you received the object code with such an offer, in accord
+-    with subsection 6b.
+-
+-    d) Convey the object code by offering access from a designated
+-    place (gratis or for a charge), and offer equivalent access to the
+-    Corresponding Source in the same way through the same place at no
+-    further charge.  You need not require recipients to copy the
+-    Corresponding Source along with the object code.  If the place to
+-    copy the object code is a network server, the Corresponding Source
+-    may be on a different server (operated by you or a third party)
+-    that supports equivalent copying facilities, provided you maintain
+-    clear directions next to the object code saying where to find the
+-    Corresponding Source.  Regardless of what server hosts the
+-    Corresponding Source, you remain obligated to ensure that it is
+-    available for as long as needed to satisfy these requirements.
+-
+-    e) Convey the object code using peer-to-peer transmission, provided
+-    you inform other peers where the object code and Corresponding
+-    Source of the work are being offered to the general public at no
+-    charge under subsection 6d.
+-
+-  A separable portion of the object code, whose source code is excluded
+-from the Corresponding Source as a System Library, need not be
+-included in conveying the object code work.
+-
+-  A "User Product" is either (1) a "consumer product", which means any
+-tangible personal property which is normally used for personal, family,
+-or household purposes, or (2) anything designed or sold for incorporation
+-into a dwelling.  In determining whether a product is a consumer product,
+-doubtful cases shall be resolved in favor of coverage.  For a particular
+-product received by a particular user, "normally used" refers to a
+-typical or common use of that class of product, regardless of the status
+-of the particular user or of the way in which the particular user
+-actually uses, or expects or is expected to use, the product.  A product
+-is a consumer product regardless of whether the product has substantial
+-commercial, industrial or non-consumer uses, unless such uses represent
+-the only significant mode of use of the product.
+-
+-  "Installation Information" for a User Product means any methods,
+-procedures, authorization keys, or other information required to install
+-and execute modified versions of a covered work in that User Product from
+-a modified version of its Corresponding Source.  The information must
+-suffice to ensure that the continued functioning of the modified object
+-code is in no case prevented or interfered with solely because
+-modification has been made.
+-
+-  If you convey an object code work under this section in, or with, or
+-specifically for use in, a User Product, and the conveying occurs as
+-part of a transaction in which the right of possession and use of the
+-User Product is transferred to the recipient in perpetuity or for a
+-fixed term (regardless of how the transaction is characterized), the
+-Corresponding Source conveyed under this section must be accompanied
+-by the Installation Information.  But this requirement does not apply
+-if neither you nor any third party retains the ability to install
+-modified object code on the User Product (for example, the work has
+-been installed in ROM).
+-
+-  The requirement to provide Installation Information does not include a
+-requirement to continue to provide support service, warranty, or updates
+-for a work that has been modified or installed by the recipient, or for
+-the User Product in which it has been modified or installed.  Access to a
+-network may be denied when the modification itself materially and
+-adversely affects the operation of the network or violates the rules and
+-protocols for communication across the network.
+-
+-  Corresponding Source conveyed, and Installation Information provided,
+-in accord with this section must be in a format that is publicly
+-documented (and with an implementation available to the public in
+-source code form), and must require no special password or key for
+-unpacking, reading or copying.
+-
+-  7. Additional Terms.
+-
+-  "Additional permissions" are terms that supplement the terms of this
+-License by making exceptions from one or more of its conditions.
+-Additional permissions that are applicable to the entire Program shall
+-be treated as though they were included in this License, to the extent
+-that they are valid under applicable law.  If additional permissions
+-apply only to part of the Program, that part may be used separately
+-under those permissions, but the entire Program remains governed by
+-this License without regard to the additional permissions.
+-
+-  When you convey a copy of a covered work, you may at your option
+-remove any additional permissions from that copy, or from any part of
+-it.  (Additional permissions may be written to require their own
+-removal in certain cases when you modify the work.)  You may place
+-additional permissions on material, added by you to a covered work,
+-for which you have or can give appropriate copyright permission.
+-
+-  Notwithstanding any other provision of this License, for material you
+-add to a covered work, you may (if authorized by the copyright holders of
+-that material) supplement the terms of this License with terms:
+-
+-    a) Disclaiming warranty or limiting liability differently from the
+-    terms of sections 15 and 16 of this License; or
+-
+-    b) Requiring preservation of specified reasonable legal notices or
+-    author attributions in that material or in the Appropriate Legal
+-    Notices displayed by works containing it; or
+-
+-    c) Prohibiting misrepresentation of the origin of that material, or
+-    requiring that modified versions of such material be marked in
+-    reasonable ways as different from the original version; or
+-
+-    d) Limiting the use for publicity purposes of names of licensors or
+-    authors of the material; or
+-
+-    e) Declining to grant rights under trademark law for use of some
+-    trade names, trademarks, or service marks; or
+-
+-    f) Requiring indemnification of licensors and authors of that
+-    material by anyone who conveys the material (or modified versions of
+-    it) with contractual assumptions of liability to the recipient, for
+-    any liability that these contractual assumptions directly impose on
+-    those licensors and authors.
+-
+-  All other non-permissive additional terms are considered "further
+-restrictions" within the meaning of section 10.  If the Program as you
+-received it, or any part of it, contains a notice stating that it is
+-governed by this License along with a term that is a further
+-restriction, you may remove that term.  If a license document contains
+-a further restriction but permits relicensing or conveying under this
+-License, you may add to a covered work material governed by the terms
+-of that license document, provided that the further restriction does
+-not survive such relicensing or conveying.
+-
+-  If you add terms to a covered work in accord with this section, you
+-must place, in the relevant source files, a statement of the
+-additional terms that apply to those files, or a notice indicating
+-where to find the applicable terms.
+-
+-  Additional terms, permissive or non-permissive, may be stated in the
+-form of a separately written license, or stated as exceptions;
+-the above requirements apply either way.
+-
+-  8. Termination.
+-
+-  You may not propagate or modify a covered work except as expressly
+-provided under this License.  Any attempt otherwise to propagate or
+-modify it is void, and will automatically terminate your rights under
+-this License (including any patent licenses granted under the third
+-paragraph of section 11).
+-
+-  However, if you cease all violation of this License, then your
+-license from a particular copyright holder is reinstated (a)
+-provisionally, unless and until the copyright holder explicitly and
+-finally terminates your license, and (b) permanently, if the copyright
+-holder fails to notify you of the violation by some reasonable means
+-prior to 60 days after the cessation.
+-
+-  Moreover, your license from a particular copyright holder is
+-reinstated permanently if the copyright holder notifies you of the
+-violation by some reasonable means, this is the first time you have
+-received notice of violation of this License (for any work) from that
+-copyright holder, and you cure the violation prior to 30 days after
+-your receipt of the notice.
+-
+-  Termination of your rights under this section does not terminate the
+-licenses of parties who have received copies or rights from you under
+-this License.  If your rights have been terminated and not permanently
+-reinstated, you do not qualify to receive new licenses for the same
+-material under section 10.
+-
+-  9. Acceptance Not Required for Having Copies.
+-
+-  You are not required to accept this License in order to receive or
+-run a copy of the Program.  Ancillary propagation of a covered work
+-occurring solely as a consequence of using peer-to-peer transmission
+-to receive a copy likewise does not require acceptance.  However,
+-nothing other than this License grants you permission to propagate or
+-modify any covered work.  These actions infringe copyright if you do
+-not accept this License.  Therefore, by modifying or propagating a
+-covered work, you indicate your acceptance of this License to do so.
+-
+-  10. Automatic Licensing of Downstream Recipients.
+-
+-  Each time you convey a covered work, the recipient automatically
+-receives a license from the original licensors, to run, modify and
+-propagate that work, subject to this License.  You are not responsible
+-for enforcing compliance by third parties with this License.
+-
+-  An "entity transaction" is a transaction transferring control of an
+-organization, or substantially all assets of one, or subdividing an
+-organization, or merging organizations.  If propagation of a covered
+-work results from an entity transaction, each party to that
+-transaction who receives a copy of the work also receives whatever
+-licenses to the work the party's predecessor in interest had or could
+-give under the previous paragraph, plus a right to possession of the
+-Corresponding Source of the work from the predecessor in interest, if
+-the predecessor has it or can get it with reasonable efforts.
+-
+-  You may not impose any further restrictions on the exercise of the
+-rights granted or affirmed under this License.  For example, you may
+-not impose a license fee, royalty, or other charge for exercise of
+-rights granted under this License, and you may not initiate litigation
+-(including a cross-claim or counterclaim in a lawsuit) alleging that
+-any patent claim is infringed by making, using, selling, offering for
+-sale, or importing the Program or any portion of it.
+-
+-  11. Patents.
+-
+-  A "contributor" is a copyright holder who authorizes use under this
+-License of the Program or a work on which the Program is based.  The
+-work thus licensed is called the contributor's "contributor version".
+-
+-  A contributor's "essential patent claims" are all patent claims
+-owned or controlled by the contributor, whether already acquired or
+-hereafter acquired, that would be infringed by some manner, permitted
+-by this License, of making, using, or selling its contributor version,
+-but do not include claims that would be infringed only as a
+-consequence of further modification of the contributor version.  For
+-purposes of this definition, "control" includes the right to grant
+-patent sublicenses in a manner consistent with the requirements of
+-this License.
+-
+-  Each contributor grants you a non-exclusive, worldwide, royalty-free
+-patent license under the contributor's essential patent claims, to
+-make, use, sell, offer for sale, import and otherwise run, modify and
+-propagate the contents of its contributor version.
+-
+-  In the following three paragraphs, a "patent license" is any express
+-agreement or commitment, however denominated, not to enforce a patent
+-(such as an express permission to practice a patent or covenant not to
+-sue for patent infringement).  To "grant" such a patent license to a
+-party means to make such an agreement or commitment not to enforce a
+-patent against the party.
+-
+-  If you convey a covered work, knowingly relying on a patent license,
+-and the Corresponding Source of the work is not available for anyone
+-to copy, free of charge and under the terms of this License, through a
+-publicly available network server or other readily accessible means,
+-then you must either (1) cause the Corresponding Source to be so
+-available, or (2) arrange to deprive yourself of the benefit of the
+-patent license for this particular work, or (3) arrange, in a manner
+-consistent with the requirements of this License, to extend the patent
+-license to downstream recipients.  "Knowingly relying" means you have
+-actual knowledge that, but for the patent license, your conveying the
+-covered work in a country, or your recipient's use of the covered work
+-in a country, would infringe one or more identifiable patents in that
+-country that you have reason to believe are valid.
+-
+-  If, pursuant to or in connection with a single transaction or
+-arrangement, you convey, or propagate by procuring conveyance of, a
+-covered work, and grant a patent license to some of the parties
+-receiving the covered work authorizing them to use, propagate, modify
+-or convey a specific copy of the covered work, then the patent license
+-you grant is automatically extended to all recipients of the covered
+-work and works based on it.
+-
+-  A patent license is "discriminatory" if it does not include within
+-the scope of its coverage, prohibits the exercise of, or is
+-conditioned on the non-exercise of one or more of the rights that are
+-specifically granted under this License.  You may not convey a covered
+-work if you are a party to an arrangement with a third party that is
+-in the business of distributing software, under which you make payment
+-to the third party based on the extent of your activity of conveying
+-the work, and under which the third party grants, to any of the
+-parties who would receive the covered work from you, a discriminatory
+-patent license (a) in connection with copies of the covered work
+-conveyed by you (or copies made from those copies), or (b) primarily
+-for and in connection with specific products or compilations that
+-contain the covered work, unless you entered into that arrangement,
+-or that patent license was granted, prior to 28 March 2007.
+-
+-  Nothing in this License shall be construed as excluding or limiting
+-any implied license or other defenses to infringement that may
+-otherwise be available to you under applicable patent law.
+-
+-  12. No Surrender of Others' Freedom.
+-
+-  If conditions are imposed on you (whether by court order, agreement or
+-otherwise) that contradict the conditions of this License, they do not
+-excuse you from the conditions of this License.  If you cannot convey a
+-covered work so as to satisfy simultaneously your obligations under this
+-License and any other pertinent obligations, then as a consequence you may
+-not convey it at all.  For example, if you agree to terms that obligate you
+-to collect a royalty for further conveying from those to whom you convey
+-the Program, the only way you could satisfy both those terms and this
+-License would be to refrain entirely from conveying the Program.
+-
+-  13. Use with the GNU Affero General Public License.
+-
+-  Notwithstanding any other provision of this License, you have
+-permission to link or combine any covered work with a work licensed
+-under version 3 of the GNU Affero General Public License into a single
+-combined work, and to convey the resulting work.  The terms of this
+-License will continue to apply to the part which is the covered work,
+-but the special requirements of the GNU Affero General Public License,
+-section 13, concerning interaction through a network will apply to the
+-combination as such.
+-
+-  14. Revised Versions of this License.
+-
+-  The Free Software Foundation may publish revised and/or new versions of
+-the GNU General Public License from time to time.  Such new versions will
+-be similar in spirit to the present version, but may differ in detail to
+-address new problems or concerns.
+-
+-  Each version is given a distinguishing version number.  If the
+-Program specifies that a certain numbered version of the GNU General
+-Public License "or any later version" applies to it, you have the
+-option of following the terms and conditions either of that numbered
+-version or of any later version published by the Free Software
+-Foundation.  If the Program does not specify a version number of the
+-GNU General Public License, you may choose any version ever published
+-by the Free Software Foundation.
+-
+-  If the Program specifies that a proxy can decide which future
+-versions of the GNU General Public License can be used, that proxy's
+-public statement of acceptance of a version permanently authorizes you
+-to choose that version for the Program.
+-
+-  Later license versions may give you additional or different
+-permissions.  However, no additional obligations are imposed on any
+-author or copyright holder as a result of your choosing to follow a
+-later version.
+-
+-  15. Disclaimer of Warranty.
+-
+-  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+-APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+-HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+-OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+-THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+-PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+-IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+-ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+-
+-  16. Limitation of Liability.
+-
+-  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+-WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+-THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+-GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+-USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+-DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+-PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+-EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+-SUCH DAMAGES.
+-
+-  17. Interpretation of Sections 15 and 16.
+-
+-  If the disclaimer of warranty and limitation of liability provided
+-above cannot be given local legal effect according to their terms,
+-reviewing courts shall apply local law that most closely approximates
+-an absolute waiver of all civil liability in connection with the
+-Program, unless a warranty or assumption of liability accompanies a
+-copy of the Program in return for a fee.
+-
+-                     END OF TERMS AND CONDITIONS
+-
+-            How to Apply These Terms to Your New Programs
+-
+-  If you develop a new program, and you want it to be of the greatest
+-possible use to the public, the best way to achieve this is to make it
+-free software which everyone can redistribute and change under these terms.
+-
+-  To do so, attach the following notices to the program.  It is safest
+-to attach them to the start of each source file to most effectively
+-state the exclusion of warranty; and each file should have at least
+-the "copyright" line and a pointer to where the full notice is found.
+-
+-    <one line to give the program's name and a brief idea of what it does.>
+-    Copyright (C) <year>  <name of author>
+-
+-    This program is free software: you can redistribute it and/or modify
+-    it under the terms of the GNU General Public License as published by
+-    the Free Software Foundation, either version 3 of the License, or
+-    (at your option) any later version.
+-
+-    This program is distributed in the hope that it will be useful,
+-    but WITHOUT ANY WARRANTY; without even the implied warranty of
+-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-    GNU General Public License for more details.
+-
+-    You should have received a copy of the GNU General Public License
+-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-
+-Also add information on how to contact you by electronic and paper mail.
+-
+-  If the program does terminal interaction, make it output a short
+-notice like this when it starts in an interactive mode:
+-
+-    <program>  Copyright (C) <year>  <name of author>
+-    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+-    This is free software, and you are welcome to redistribute it
+-    under certain conditions; type `show c' for details.
+-
+-The hypothetical commands `show w' and `show c' should show the appropriate
+-parts of the General Public License.  Of course, your program's commands
+-might be different; for a GUI interface, you would use an "about box".
+-
+-  You should also get your employer (if you work as a programmer) or school,
+-if any, to sign a "copyright disclaimer" for the program, if necessary.
+-For more information on this, and how to apply and follow the GNU GPL, see
+-<https://www.gnu.org/licenses/>.
+-
+-  The GNU General Public License does not permit incorporating your program
+-into proprietary programs.  If your program is a subroutine library, you
+-may consider it more useful to permit linking proprietary applications with
+-the library.  If this is what you want to do, use the GNU Lesser General
+-Public License instead of this License.  But first, please read
+-<https://www.gnu.org/licenses/why-not-lgpl.html>.
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index 076d97e6..00000000
+--- a/README.md
++++ /dev/null
+@@ -1,68 +0,0 @@
+-<h1 align="center">
+-  <a href="http://atlasos.net" target="_blank"><img src="https://gcore.jsdelivr.net/gh/Atlas-OS/branding@main/banners/banner-v3.png" alt="Atlas" width="800"></a>
+-</h1>
+-  <p align="center">
+-    <a href="https://github.com/Atlas-OS/Atlas/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/atlas-os/atlas?style=for-the-badge&logo=github&color=1A91FF"/></a>
+-    <a href="https://github.com/Atlas-OS/Atlas/graphs/contributors"><img alt="Contributors" src="https://img.shields.io/github/contributors/atlas-os/atlas?style=for-the-badge&color=1A91FF" /></a>
+-    <a href="https://github.com/Atlas-OS/Atlas/releases/latest"><img alt="Release" src="https://img.shields.io/github/release/atlas-os/atlas?style=for-the-badge&color=1A91FF" /></a>
+-    <a href="https://github.com/Atlas-OS/.github/blob/main/profile/CODE_OF_CONDUCT.md"><img alt="Code of Conduct" src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg?style=for-the-badge&color=1A91FF" /></a>
+-  </p>
+-<p align="center">A transparent and lightweight modification to Windows, designed to optimize performance, privacy and usability.</p>
+-
+-<p align="center">
+-  <a href="https://atlasos.net" target="_blank">🌐 Website</a>
+-  •
+-  <a href="https://docs.atlasos.net" target="_blank">📚 Documentation</a>
+-  •
+-  <a href="https://discord.atlasos.net" target="_blank">☎️ Discord</a>
+-  •
+-  <a href="https://forum.atlasos.net" target="_blank">💬 Forum</a>
+-</p>
+-
+-## 📚 **Important Documentation**
+-- [Installation](https://docs.atlasos.net/getting-started/installation/)
+-- [FAQ & Common Issues](https://docs.atlasos.net/faq-and-troubleshooting/removed-features/)
+-- [Contribution Guidelines](https://docs.atlasos.net/contributions/)
+-- [Branding](https://docs.atlasos.net/branding/)
+-
+-## 🤔 What is Atlas?
+-Atlas is an open-source project that enhances Windows by eliminating factors negatively impacting gaming performance. Optimizations include enhanced privacy, usability, performance, and changes for minimal stutters and input lag while focusing on maintaining functionality.
+-
+-## 👀 Why Atlas?
+-### 🔒 Enhanced Privacy
+-Atlas removes the majority of telemetry embedded within Windows and implements numerous group policies to minimize data collection. However, it cannot ensure privacy outside the scope of Windows, such as browsers and other third-party applications.
+-
+-### 📈 Optimized Performance
+-Atlas strikes a balance between performance and compatibility. It implements numerous meaningful changes to improve Windows performance and responsiveness without breaking essential features. Atlas will not do tweaks for a placebo effect or marginal gains, making Atlas more stable and compatible.
+-
+-### 🛡️ Security Features
+-Most Windows modifications remove key security features most users need to maintain a secure system. On the other hand, Atlas allows users to customize their security at their own risk while informing users about each option's [pros and cons](https://docs.atlasos.net/getting-started/post-installation/atlas-folder/security/).
+-
+-Some optional security features are:
+-
+-- Windows Defender & SmartScreen
+-- Windows Update
+-  - Automatic updates are togglable
+-- CPU mitigations
+-- User Account Control
+-- Core isolation features
+-
+-### ✅ Increased Usability
+-Atlas applies many modifications and default settings to make Windows easier to use. This includes removing commonly unneeded applications (which are reinstallable), configuring many aspects of the interface, disabling advertisements, and much more.
+-
+-### 🔍 Open Source and Transparent
+-
+-Unlike custom Windows ISOs, Atlas is more straightforward to audit due to the use of [AME Wizard](https://ameliorated.io). AME Wizard is controlled by Playbooks, a customizable script-esque system that can perform various tasks.
+-
+-Playbooks are renamed **.zip** archives, with the password [`malte`](https://docs.ameliorated.io/developers/getting-started/creation.html). As they primarily consist of plain text, Playbooks enable transparency, unlike custom Windows ISOs, which have many entry points for malicious activity. The few binaries in the Playbook are open source in our [`utilities` repository](https://github.com/Atlas-OS/utilities), with the [hashes listed here](https://github.com/Atlas-OS/Atlas/blob/main/src/playbook/Executables/AtlasModules/README.md).
+-
+-Although the GUI is not open source for AME Wizard, AME Wizard's entire backend (called [TrustedUninstaller](https://github.com/Ameliorated-LLC/trusted-uninstaller-cli)) is open source under MIT, which contains each action used to run Atlas. The Atlas Playbook is open source under the [GPLv3 license](https://github.com/Atlas-OS/Atlas/blob/main/LICENSE).
+-
+-### 🔒 Legal Compliance
+-As Atlas doesn't redistribute a modified Windows ISO, it complies with [Windows's Usage Terms](https://www.microsoft.com/en-us/Useterms/Retail/Windows/10/UseTerms_Retail_Windows_10_English.htm). In addition, Atlas does not alter activation in Windows.
+-
+-## 🎨 Brand kit
+-Want to create your own Atlas wallpaper with some original creative designs? Visit our [Branding Kit on Docs](https://docs.atlasos.net/branding/) and share your creations on our [forum](https://forum.atlasos.net/t/art-showcase)!
+-
+-## 💙 Contributors
+-<a href="https://github.com/Atlas-OS/Atlas/graphs/contributors" target="_blank"><img src="https://contrib.rocks/image?repo=Atlas-OS/Atlas&columns=18" alt="Avatars of all contributors"></a>
+diff --git a/src/playbook/Configuration/atlas/appx.yml b/src/playbook/Configuration/atlas/appx.yml
+index 2796baa9..f89e0d90 100644
+--- a/src/playbook/Configuration/atlas/appx.yml
++++ b/src/playbook/Configuration/atlas/appx.yml
+@@ -61,8 +61,8 @@ actions:
+   - !appx: {name: 'Microsoft.ScreenSketch*', type: family, option: 'remove-snipping-tool'}
+   - !appx: {name: 'Microsoft.SkypeApp*', type: family}
+   - !appx: {name: 'Microsoft.Todos*', type: family}
+-  - !appx: {name: 'Microsoft.WindowsAlarms*', type: family}
+-  - !appx: {name: 'Microsoft.WindowsCamera*', type: family}
++  # - !appx: {name: 'Microsoft.WindowsAlarms*', type: family}
++  # - !appx: {name: 'Microsoft.WindowsCamera*', type: family}
+   - !appx: {name: 'Microsoft.WindowsFeedbackHub*', type: family}
+   - !appx: {name: 'Microsoft.WindowsMaps*', type: family}
+   - !appx: {name: 'Microsoft.WindowsSoundRecorder*', type: family}
+diff --git a/src/playbook/Configuration/custom.yml b/src/playbook/Configuration/custom.yml
+index dadce249..643b1df8 100644
+--- a/src/playbook/Configuration/custom.yml
++++ b/src/playbook/Configuration/custom.yml
+@@ -2,7 +2,10 @@
+ title: Root Playbook File
+ description: Runs all of the Playbook files
+ actions:
+-    # Warn user if their Windows install is old
++  # AME Live Log
++  - !cmd: command: 'start "AME Wizard Live Log" PowerShell -NoP -C "$a = Join-Path (Get-ChildItem (Join-Path $([Environment]::GetFolderPath(''CommonApplicationData'')) ''\AME\Logs'') -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName ''\OutputBuffer.txt''; while ($true) { Get-Content -Wait -LiteralPath $a -EA 0 | Write-Output; Start-Sleep 1 }"'
++          option: liveLogON
++  # Warn user if their Windows install is old
+   - !powerShell:
+     command: |
+       if ((gp 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation' -Name 'Model' -EA 0).Model -notmatch 'Atlas') {
+diff --git a/src/playbook/Configuration/tweaks.yml b/src/playbook/Configuration/tweaks.yml
+index bef06a3f..3711f537 100644
+--- a/src/playbook/Configuration/tweaks.yml
++++ b/src/playbook/Configuration/tweaks.yml
+@@ -60,6 +60,9 @@ actions:
+   # -------------------------------------------------------------------------- #
+   - !task: {path: 'tweaks\performance\system\config-boot-config.yml'}
+   # Disabled as there's no evidence it helps (likely placebo)
++  # note from wave: this could actually worsen system stability
++  # as the system is more likely to run out of ram quicker
++  # on low-end systems
+   # - !task: {path: 'tweaks\performance\system\disable-paging.yml'}
+   - !task: {path: 'tweaks\performance\system\optimize-ntfs.yml'}
+   - !task: {path: 'tweaks\performance\system\disable-service-host-split.yml'}
+@@ -161,7 +164,7 @@ actions:
+   - !task: {path: 'tweaks\qol\do-not-reduce-sounds.yml'}
+   - !task: {path: 'tweaks\qol\hide-disabled-disconnected-sounds.yml'}
+   - !task: {path: 'tweaks\qol\show-all-tasks-control-panel.yml'}
+-  - !task: {path: 'tweaks\qol\visual-effects.yml'}
++  # - !task: {path: 'tweaks\qol\visual-effects.yml'}
+   - !task: {path: 'tweaks\qol\disable-tips.yml'}
+   - !task: {path: 'tweaks\qol\disable-win11-settings-banner.yml'}
+   - !task: {path: 'tweaks\qol\disable-screen-capture-hotkey.yml', option: 'remove-snipping-tool'}
+@@ -172,8 +175,8 @@ actions:
+   #  qol\appearance                                                            #
+   # -------------------------------------------------------------------------- #
+   - !task: {path: 'tweaks\qol\appearance\blue-tooltips.yml'}
+-  - !task: {path: 'tweaks\qol\appearance\atlas-theme.yml'}
+-  - !task: {path: 'tweaks\qol\appearance\disallow-theme-changes.yml'}
++  # - !task: {path: 'tweaks\qol\appearance\atlas-theme.yml'}
++  # - !task: {path: 'tweaks\qol\appearance\disallow-theme-changes.yml'}
+ 
+   # -------------------------------------------------------------------------- #
+   #  qol\windows-update                                                        #
+@@ -337,7 +340,7 @@ actions:
+   - !task: {path: 'tweaks\scripts\script-core-isolation.yml'}
+   - !task: {path: 'tweaks\scripts\script-mitigations.yml'}
+   - !task: {path: 'tweaks\scripts\script-devices.yml'}
+-  - !task: {path: 'tweaks\scripts\script-pfp.yml'}
++  # - !task: {path: 'tweaks\scripts\script-pfp.yml'}
+   - !task: {path: 'tweaks\scripts\script-backup2.yml'}
+   - !task: {path: 'tweaks\scripts\script-clientcbs.yml'}
+ 
+diff --git a/src/playbook/Configuration/tweaks/misc/config-oem-information.yml b/src/playbook/Configuration/tweaks/misc/config-oem-information.yml
+index b5bfea70..191dab11 100644
+--- a/src/playbook/Configuration/tweaks/misc/config-oem-information.yml
++++ b/src/playbook/Configuration/tweaks/misc/config-oem-information.yml
+@@ -1,16 +1,17 @@
+ ---
+ title: Configure OEM Information
+ description: Configures OEM information to contain the Atlas version and the Atlas Discord server
++option: config-wOS
+ actions:
+   - !powerShell:
+     command: |
+       $version = 'AtlasVersionUndefined'
+ 
+       Write-Output 'Setting boot entry name...'
+-      bcdedit /set description """AtlasOS $(('10', '11')[[int]([System.Environment]::OSVersion.Version.Build -ge 22000)]) $version"""
++      bcdedit /set description """waveOS $(('10', '11')[[int]([System.Environment]::OSVersion.Version.Build -ge 22000)]) $version"""
+ 
+       Write-Output 'Setting other versioned OEM information...'
+-      $reportedVer = """Atlas Playbook $version"""
++      $reportedVer = """waveOS Playbook $version"""
+       # Shows in Settings
+       Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation' -Name 'Model' -Value $reportedVer -Force
+       # Shows in winver
+@@ -19,7 +20,7 @@ actions:
+   - !registryValue:
+     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'
+     value: 'Manufacturer'
+-    data: 'Atlas Team'
++    data: '13waves'
+     type: REG_SZ
+   - !registryValue:
+     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'
+@@ -29,7 +30,7 @@ actions:
+   - !registryValue:
+     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation'
+     value: 'SupportPhone'
+-    data: 'https://github.com/Atlas-OS/Atlas'
++    data: '+1-800-444-4444'
+     type: REG_SZ
+   - !registryValue:
+     path: 'HKLM\SOFTWARE\Atlas'
+diff --git a/src/playbook/Configuration/tweaks/qol/appearance/atlas-theme.yml b/src/playbook/Configuration/tweaks/qol/appearance/atlas-theme.yml
+deleted file mode 100644
+index 686c5b64..00000000
+--- a/src/playbook/Configuration/tweaks/qol/appearance/atlas-theme.yml
++++ /dev/null
+@@ -1,52 +0,0 @@
+----
+-title: Add Theme
+-description: Adds and sets the Atlas themes by default
+-actions:
+-    # Apply theme file
+-  - !taskKill: {name: 'SystemSettings', ignoreErrors: true}
+-  - !powerShell:
+-    command: >-
+-      Start-Process -FilePath explorer -ArgumentList """$([Environment]::GetFolderPath('Windows'))\Resources\Themes\atlas-v0.4.x-dark.theme""";
+-      Start-Sleep 6
+-    wait: true
+-    runas: currentUserElevated
+-
+-    # For Windows 11, set recent theme selection
+-  - !taskKill: {name: 'SystemSettings', ignoreErrors: true}
+-  - !taskKill: {name: 'control', ignoreErrors: true}
+-  - !taskKill: {name: 'explorer', ignoreErrors: true, builds: [ '>=22000' ]}
+-  - !powerShell:
+-    command: '.\AtlasModules\Scripts\newUsers.ps1 -ThemeMRU'
+-    exeDir: true
+-    wait: true
+-    runas: currentUserElevated
+-    builds: [ '>=22000' ]
+-  - !run: {exe: 'explorer.exe', runas: 'currentUser', wait: false, builds: [ '>=22000' ]}
+-
+-    # Applies Atlas lockscreen background
+-    # Also disables fun facts, tips, tricks, and more on lockscreen - only on Enterprise/Education
+-  - !registryValue:
+-    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
+-    value: 'LockScreenOverlaysDisabled'
+-    data: '1'
+-    type: REG_DWORD
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
+-    value: 'RotatingLockScreenEnabled'
+-    data: '0'
+-    type: REG_DWORD
+-  - !run:
+-    exe: 'THEME.cmd'
+-    exeDir: true
+-  - !powerShell:
+-    command: '& ".\AtlasModules\Scripts\LOCKSCREEN.ps1"'
+-    exeDir: true
+-    wait: true
+-    runas: currentUserElevated
+-
+-    # Set Atlas theme as default for new users
+-  - !registryValue:
+-    path: 'HKCU\Software\Policies\Microsoft\Windows\Personalization'
+-    value: 'ThemeFile'
+-    data: '%windir%\Resources\Themes\atlas-v0.4.x-dark.theme'
+-    type: REG_SZ
+diff --git a/src/playbook/Configuration/tweaks/qol/appearance/disallow-theme-changes.yml b/src/playbook/Configuration/tweaks/qol/appearance/disallow-theme-changes.yml
+deleted file mode 100644
+index f37cd1f2..00000000
+--- a/src/playbook/Configuration/tweaks/qol/appearance/disallow-theme-changes.yml
++++ /dev/null
+@@ -1,14 +0,0 @@
+----
+-title: Disallow Themes to Change Certain Personalized Features
+-description: Disallows themes to change certain personalized features, as most of the time people only really apply themes for wallpapers or Windows style skins (custom themes)
+-actions:
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes'
+-    value: 'ThemeChangesMousePointers'
+-    data: '0'
+-    type: REG_DWORD
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes'
+-    value: 'ThemeChangesDesktopIcons'
+-    data: '0'
+-    type: REG_DWORD
+diff --git a/src/playbook/Configuration/tweaks/qol/explorer/show-files.yml b/src/playbook/Configuration/tweaks/qol/explorer/show-files.yml
+index 796a94cc..c4dbbd07 100644
+--- a/src/playbook/Configuration/tweaks/qol/explorer/show-files.yml
++++ b/src/playbook/Configuration/tweaks/qol/explorer/show-files.yml
+@@ -1,6 +1,7 @@
+ ---
+ title: Configure Explorer to Show All Files with File Extensions
+ description: Configures Explorer to show all files with file extensions such as system files, hidden files, etc. This is for QoL and also security.
++option: seeHidFiles
+ actions:
+   - !registryValue:
+     path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+diff --git a/src/playbook/Configuration/tweaks/qol/explorer/use-compact-mode.yml b/src/playbook/Configuration/tweaks/qol/explorer/use-compact-mode.yml
+index 9148b1e4..7b09ab28 100644
+--- a/src/playbook/Configuration/tweaks/qol/explorer/use-compact-mode.yml
++++ b/src/playbook/Configuration/tweaks/qol/explorer/use-compact-mode.yml
+@@ -2,6 +2,7 @@
+ title: Use Compact Mode
+ description: Sets compact mode in File Explorer
+ builds: [ '>=22000' ]
++option: useCM
+ actions:
+   - !registryValue:
+     path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+diff --git a/src/playbook/Configuration/tweaks/qol/security/disable-uac-secure-desktop.yml b/src/playbook/Configuration/tweaks/qol/security/disable-uac-secure-desktop.yml
+index fad21c0f..863862e7 100644
+--- a/src/playbook/Configuration/tweaks/qol/security/disable-uac-secure-desktop.yml
++++ b/src/playbook/Configuration/tweaks/qol/security/disable-uac-secure-desktop.yml
+@@ -1,6 +1,7 @@
+ ---
+ title: Disable UAC Secure Desktop
+ description: Disables switching to the Secure Desktop when prompting for elevation. An application would need admin privileges to control the mouse and keyboard to accept the UAC prompt anyways. As a note, UAC is not designed to save you from malware, UAC can easily be bypassed on admin accounts (e.g. check GitHub)
++option: disable-sd-uac
+ actions:
+   - !registryValue:
+     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+diff --git a/src/playbook/Configuration/tweaks/qol/startup-shutdown/enable-verbose-messages.yml b/src/playbook/Configuration/tweaks/qol/startup-shutdown/enable-verbose-messages.yml
+index 383a9734..0e3d07de 100644
+--- a/src/playbook/Configuration/tweaks/qol/startup-shutdown/enable-verbose-messages.yml
++++ b/src/playbook/Configuration/tweaks/qol/startup-shutdown/enable-verbose-messages.yml
+@@ -1,6 +1,7 @@
+ ---
+ title: Enable verbose startup, shutdown, logon, and logoff status messages
+ description: Enables verbose status messages so users can have more insight on exactly what's happening on startup, shutdown, logon, and logoff
++option: enable-vbms
+ actions:
+   - !registryValue:
+     path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+diff --git a/src/playbook/Configuration/tweaks/qol/visual-effects.yml b/src/playbook/Configuration/tweaks/qol/visual-effects.yml
+deleted file mode 100644
+index b4012f37..00000000
+--- a/src/playbook/Configuration/tweaks/qol/visual-effects.yml
++++ /dev/null
+@@ -1,59 +0,0 @@
+----
+-title: Configure Visual Effects
+-description: Configures the visual effects in Windows for the optimal responsiveness, performance and QoL
+-actions:
+-  - !registryValue:
+-    path: 'HKCU\Control Panel\Desktop'
+-    value: 'FontSmoothing'
+-    data: '2'
+-    type: REG_SZ
+-  - !registryValue:
+-    path: 'HKCU\Control Panel\Desktop'
+-    value: 'UserPreferencesMask'
+-    data: '9012038010000000'
+-    type: REG_BINARY
+-  - !registryValue:
+-    path: 'HKCU\Control Panel\Desktop'
+-    value: 'DragFullWindows'
+-    data: '1'
+-    type: REG_SZ
+-  - !registryValue:
+-    path: 'HKCU\Control Panel\Desktop\WindowMetrics'
+-    value: 'MinAnimate'
+-    data: '0'
+-    type: REG_SZ
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+-    value: 'ListviewAlphaSelect'
+-    data: '1'
+-    type: REG_DWORD
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+-    value: 'IconsOnly'
+-    data: '0'
+-    type: REG_DWORD
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+-    value: 'TaskbarAnimations'
+-    data: '0'
+-    type: REG_DWORD
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
+-    value: 'ListviewShadow'
+-    data: '1'
+-    type: REG_DWORD
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects'
+-    value: 'VisualFXSetting'
+-    data: '3'
+-    type: REG_DWORD
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM'
+-    value: 'EnableAeroPeek'
+-    data: '0'
+-    type: REG_DWORD
+-  - !registryValue:
+-    path: 'HKCU\SOFTWARE\Microsoft\Windows\DWM'
+-    value: 'AlwaysHibernateThumbnails'
+-    data: '0'
+-    type: REG_DWORD
+diff --git a/src/playbook/Configuration/tweaks/scripts/script-pfp.yml b/src/playbook/Configuration/tweaks/scripts/script-pfp.yml
+deleted file mode 100644
+index 4c4dba8e..00000000
+--- a/src/playbook/Configuration/tweaks/scripts/script-pfp.yml
++++ /dev/null
+@@ -1,8 +0,0 @@
+----
+-title: Set Profile Pictures
+-description: Sets the default Atlas profile pictures
+-actions:
+-  - !powerShell:
+-    command: '.\PFP.ps1'
+-    exeDir: true
+-    wait: true
+diff --git a/src/playbook/Executables/SOFTWARE.ps1 b/src/playbook/Executables/SOFTWARE.ps1
+index 902b5b1f..bd1a9d49 100644
+--- a/src/playbook/Executables/SOFTWARE.ps1
++++ b/src/playbook/Executables/SOFTWARE.ps1
+@@ -73,22 +73,22 @@ $legacyArgs = '/q /norestart'
+ $modernArgs = "/install /quiet /norestart"
+ 
+ $vcredists = [ordered] @{
+-	# 2005 - version 8.0.50727.6195 (MSI 8.0.61000/8.0.61001) SP1
+-	# "https://download.microsoft.com/download/8/B/4/8B42259F-5D70-43F4-AC2E-4B208FD8D66A/vcredist_x64.exe" = @("2005-x64", "/c /q /t:")
+-	# "https://download.microsoft.com/download/8/B/4/8B42259F-5D70-43F4-AC2E-4B208FD8D66A/vcredist_x86.exe" = @("2005-x86", "/c /q /t:")
+-	# 2008 - version 9.0.30729.6161 (EXE 9.0.30729.5677) SP1
+-	# "https://download.microsoft.com/download/5/D/8/5D8C65CB-C849-4025-8E95-C3966CAFD8AE/vcredist_x64.exe" = @("2008-x64", "/q /extract:")
+-	# "https://download.microsoft.com/download/5/D/8/5D8C65CB-C849-4025-8E95-C3966CAFD8AE/vcredist_x86.exe" = @("2008-x86", "/q /extract:")
+-	# 2010 - version 10.0.40219.325 SP1
+-	# "https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x64.exe" = @("2010-x64", $legacyArgs)
+-	# "https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe" = @("2010-x86", $legacyArgs)
+-	# 2012 - version 11.0.61030.0
+-	# "https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe" = @("2012-x64", $modernArgs)
+-	# "https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x86.exe" = @("2012-x86", $modernArgs)
+-	# 2013 - version 12.0.40664.0
+-	# "https://aka.ms/highdpimfc2013x64enu" = @("2013-x64", $modernArgs)
+-	# "https://aka.ms/highdpimfc2013x86enu" = @("2013-x86", $modernArgs)
+-	# 2015-2022 (2015+) - latest version
++	#  2005 - version 8.0.50727.6195 (MSI 8.0.61000/8.0.61001) SP1
++	#  "https://download.microsoft.com/download/8/B/4/8B42259F-5D70-43F4-AC2E-4B208FD8D66A/vcredist_x64.exe" = @("2005-x64", "/c /q /t:")
++	#  "https://download.microsoft.com/download/8/B/4/8B42259F-5D70-43F4-AC2E-4B208FD8D66A/vcredist_x86.exe" = @("2005-x86", "/c /q /t:")
++	#  2008 - version 9.0.30729.6161 (EXE 9.0.30729.5677) SP1
++	#  "https://download.microsoft.com/download/5/D/8/5D8C65CB-C849-4025-8E95-C3966CAFD8AE/vcredist_x64.exe" = @("2008-x64", "/q /extract:")
++	#  "https://download.microsoft.com/download/5/D/8/5D8C65CB-C849-4025-8E95-C3966CAFD8AE/vcredist_x86.exe" = @("2008-x86", "/q /extract:")
++	#  2010 - version 10.0.40219.325 SP1
++	#  "https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x64.exe" = @("2010-x64", $legacyArgs)
++	#  "https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x86.exe" = @("2010-x86", $legacyArgs)
++	#  2012 - version 11.0.61030.0
++	#  "https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x64.exe" = @("2012-x64", $modernArgs)
++	#  "https://download.microsoft.com/download/1/6/B/16B06F60-3B20-4FF2-B699-5E9B7962F9AE/VSU_4/vcredist_x86.exe" = @("2012-x86", $modernArgs)
++	#  2013 - version 12.0.40664.0
++	#  "https://aka.ms/highdpimfc2013x64enu" = @("2013-x64", $modernArgs)
++	#  "https://aka.ms/highdpimfc2013x86enu" = @("2013-x86", $modernArgs)
++	#  2015-2022 (2015+) - latest version
+ 	"https://aka.ms/vs/17/release/vc_redist.x64.exe" = @("2015+-x64", $modernArgs)
+ 	"https://aka.ms/vs/17/release/vc_redist.x86.exe" = @("2015+-x86", $modernArgs)
+ }
+diff --git a/src/playbook/playbook.conf b/src/playbook/playbook.conf
+index 283a45c8..97eb5b74 100644
+--- a/src/playbook/playbook.conf
++++ b/src/playbook/playbook.conf
+@@ -1,39 +1,27 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <Playbook>
+-	<Name>AtlasOS</Name>
+-	<Username>Atlas</Username>
+-	<Title>AtlasOS Playbook v0.5.0 (dev)</Title>
+-	<ShortDescription>AtlasOS Playbook for Windows 10 and 11</ShortDescription>
++	<Name>waveOS</Name>
++	<Username>WaveOS</Username>
++	<Title>waveOS Playbook v0.5.212 (dev)</Title>
++	<ShortDescription>waveOS Playbook for Windows 10 and 11</ShortDescription>
+ 	<Description><![CDATA[╭───────────── ⚠️ 𝗖𝗿𝗶𝘁𝗶𝗰𝗮𝗹 ⚠️ ─────────────╮
+ │         Read the Atlas documentation first.       │
+ │                https://docs.atlasos.net/                 │
+ ╰───────────────────────────────────────╯
+ 
+-Atlas makes your computer snappier and more private with lots of usability improvements.]]></Description>
++waveOS makes your computer snappier and more private with lots of usability improvements.]]></Description>
+ 	<Details>An open and lightweight modification to Windows, designed to optimize performance, privacy and security.</Details>
+-	<ProgressText><![CDATA[Atlas is currently installing software, copying its configuration folders, and tweaking Windows. If you are not already, we recommend following our documentation.]]></ProgressText>
+-	<Version>0.5.0</Version>
+-	<SupportedBuilds>
+-		<string>19045</string>
+-		<string>22631</string>
+-	</SupportedBuilds>
+-	<Requirements>
+-		<Requirement>DefenderToggled</Requirement>
+-		<Requirement>NoAntivirus</Requirement>
+-		<Requirement>Internet</Requirement>
+-		<Requirement>NoPendingUpdates</Requirement>
+-		<Requirement>PluggedIn</Requirement>
+-	</Requirements>
+-	<UniqueId>00000000-0000-4000-6174-6c6173203a33</UniqueId>
++	<ProgressText><![CDATA[waveOS is currently installing software, copying its configuration folders, and tweaking Windows. If you are not already, we recommend following our documentation.]]></ProgressText>
++	<Version>0.5.212</Version>
++	<UniqueId>00000000-0000-2000-2120-7a732f0872c2</UniqueId>
+ 	<Overhaul>true</Overhaul>
+ 	<UseKernelDriver>false</UseKernelDriver>
+-	<ProductCode>64</ProductCode>
++	<ProductCode>212</ProductCode>
+ 	<EstimatedMinutes>15</EstimatedMinutes>
+-	<Git>https://github.com/Atlas-OS/Atlas</Git>
+-	<Website>https://atlasos.net</Website>
+-	<DonateLink>https://ko-fi.com/atlasos</DonateLink>
++	<Git>https://github.com/13waves/waveOS</Git>
++	<Website>https://github.com/13waves/waveOS</Website>
+ 	<FeaturePages>
+-		<RadioPage IsRequired="true" DefaultOption="defender-enable" Description="Disabling Defender reduces security, and is an option for advanced users only.">
++		<RadioPage IsRequired="true" DefaultOption="defender-disable" Description="Disabling Defender reduces security, and is an option for advanced users only.">
+ 			<TopLine Text="Defender can be toggled in the Atlas folder."/>
+ 			<Options>
+ 				<RadioOption>
+@@ -77,15 +65,15 @@ Atlas makes your computer snappier and more private with lots of usability impro
+ 		</RadioPage>
+ 		<CheckboxPage IsRequired="true" Description="Select the options you would like to use, they can be changed in the Atlas folder later.">
+ 			<Options>
+-				<CheckboxOption>
++				<CheckboxOption IsChecked="true">
+ 					<Text>Disable Hibernation</Text>
+ 					<Name>disable-hibernation</Name>
+ 				</CheckboxOption>
+-				<CheckboxOption>
++				<CheckboxOption IsChecked="false">
+ 					<Text>Disable Power Saving</Text>
+ 					<Name>disable-power-saving</Name>
+ 				</CheckboxOption>
+-				<CheckboxOption>
++				<CheckboxOption IsChecked="true">
+ 					<Text>Disable Core Isolation</Text>
+ 					<Name>disable-core-isolation</Name>
+ 				</CheckboxOption>
+@@ -94,21 +82,55 @@ Atlas makes your computer snappier and more private with lots of usability impro
+ 		</CheckboxPage>
+ 		<CheckboxPage IsRequired="true" Description="Select the options you would like to use, they can be changed in the Atlas folder later.">
+ 			<Options>
+-				<CheckboxOption>
++				<CheckboxOption IsChecked="false">
+ 					<Text>Remove Snipping Tool App</Text>
+ 					<Name>remove-snipping-tool</Name>
+ 				</CheckboxOption>
+-				<CheckboxOption>
++				<CheckboxOption IsChecked="false">
+ 					<Text>Remove Microsoft Edge</Text>
+ 					<Name>uninstall-edge</Name>
+ 				</CheckboxOption>
+-				<CheckboxOption>
++				<CheckboxOption IsChecked="false">
+ 					<Text>Install a Browser</Text>
+ 					<Name>install-another-browser</Name>
+ 				</CheckboxOption>
+ 			</Options>
+ 			<BottomLine Text="Learn more" Link="https://docs.atlasos.net/getting-started/post-installation/atlas-folder/configuration"/>
+ 		</CheckboxPage>
++		<CheckboxPage IsRequired="true" Description="Select the options you would like to use (waveOS options)">
++			<Options>
++			    <CheckboxOption>
++					<Text>Configure OEM Info to waveOS</Text>
++					<Name>config-wOS</Name>
++				</CheckboxOption>
++				<CheckboxOption IsChecked="false">
++					<Text>Disable Secure Desktop</Text>
++					<Name>disable-sd-uac</Name>
++				</CheckboxOption>
++	            <CheckboxOption>
++					<Text>Enable Verbose Messages</Text>
++					<Name>enable-vbms</Name>
++				</CheckboxOption>
++			</Options>
++			<BottomLine Text="Learn more" Link="https://docs.atlasos.net/getting-started/post-installation/atlas-folder/configuration"/>
++		</CheckboxPage>
++		<CheckboxPage IsRequired="true" Description="Select the options you would like to use (waveOS options)">
++			<Options>
++	 		    <CheckboxOption>
++					<Text>Enable Live Log while installing the Playbook</Text>
++					<Name>liveLogON</Name>
++				</CheckboxOption>
++			    <CheckboxOption>
++					<Text>Use Compact Mode in File Explorer</Text>
++					<Name>useCM</Name>
++				</CheckboxOption>
++				<CheckboxOption>
++					<Text>Set Explorer to Show All Files with File Extensions</Text>
++					<Name>seeHidFiles</Name>
++				</CheckboxOption>
++			</Options>
++			<BottomLine Text="Learn more" Link="https://docs.atlasos.net/getting-started/post-installation/atlas-folder/configuration"/>
++		</CheckboxPage>
+ 		<RadioImagePage CheckDefaultBrowser="true" DependsOn="install-another-browser" DefaultOption="browser-brave" Description="Select your preferred browser to install. Browser settings are not modified.">
+ 			<TopLine Text="We do not recommend Chrome for privacy reasons."/>
+ 			<Options>
+diff --git a/src/playbook/playbook.png b/src/playbook/playbook.png
+index 76bb1926..ea1f9c6a 100644
+Binary files a/src/playbook/playbook.png and b/src/playbook/playbook.png differ
