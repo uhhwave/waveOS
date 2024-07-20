@@ -177,4 +177,4 @@ jobs:
           body: |
             this release has been built by GitHub Actions <3
           files: |
-            D:/a/waveOS/waveOS/src/playbook/*.apbx
+            **.apbx
