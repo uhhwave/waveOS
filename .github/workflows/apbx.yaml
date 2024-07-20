@@ -172,9 +172,9 @@ jobs:
       - name: Artifact Release
         uses: softprops/action-gh-release@v1
         with:
-          name: ~ Nightly ~
+          name: Nightly
           tag_name: nightly
           body: |
-            **This release has been built by GitHub Actions**
+            this release has been built by GitHub Actions <3
           files: |
-            "src/release-zip/waveOS Playbook.zip"
+            "src/release-zip/*"
