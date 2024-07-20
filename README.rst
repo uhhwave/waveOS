@@ -30,14 +30,14 @@ This playbook is not thoroughly tested and may cause issues with your device. Us
 Prerequisites
 ^^^^^^^^^^^^^
 
-Ensure you have the latest `.apbx` package from our `Releases <https://github.com/13waves/waveOS/releases>`_ section.
+Ensure you have the latest `.apbx` artifact built by `Actions <https://nightly.link/13waves/waveOS/workflows/apbx.yaml/main/waveOS%20Playbook.zip>`_ section.
 
 Installation
 ^^^^^^^^^^^^
 
 Follow these steps to install waveOS:
 
-1. Download the latest `.apbx` package from the `Releases <https://github.com/13waves/waveOS/releases>`_ section.
+1. Download the latest `.apbx` package from `nightly.link <https://nightly.link/13waves/waveOS/workflows/apbx.yaml/main/waveOS%20Playbook.zip>`_ section.
 2. Proceed with the installation instructions provided by `AtlasOS <https://docs.atlasos.net>`_.
 
 ~ contributing ~
@@ -60,7 +60,3 @@ See the `LICENSE` folder for details.
 -----------
 
 For further inquiries or assistance, please reach out via our GitHub issues page.
-
-`Releases <https://github.com/13waves/waveOS/releases>`_
-
-`AtlasOS <https://github.com/Atlas-OS/Atlas>`_
