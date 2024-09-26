@@ -19,8 +19,9 @@ if (!([Security.Principal.WindowsIdentity]::GetCurrent().User.Value -eq 'S-1-5-1
 # ======================================================================================================================= #
 # INITIAL VARIABLES                                                                                                       #
 # ======================================================================================================================= #
-$sys32 = [Environment]::GetFolderPath('System')
 $windir = [Environment]::GetFolderPath('Windows')
+& "$windir\AtlasModules\initPowerShell.ps1"
+$sys32 = [Environment]::GetFolderPath('System')
 $safeModePackageList = "$sys32\safeModePackagesToInstall.atlasmodule"
 $env:path = "$windir;$sys32;$sys32\Wbem;$sys32\WindowsPowerShell\v1.0;" + $env:path
 $errorLevel = $warningLevel = 0
@@ -33,10 +34,6 @@ $safeModeStatus = (Get-CimInstance -Class Win32_ComputerSystem).BootupState -ne 
 # ======================================================================================================================= #
 # FUNCTIONS                                                                                                               #
 # ======================================================================================================================= #
-function Pause ($message = "Press Enter to exit") {
-	$null = Read-Host $message
-}
-
 function Write-BulletPoint($message) {
 	$message | Foreach-Object {
 		Write-Host " - " -ForegroundColor Green -NoNewline
@@ -82,7 +79,7 @@ function Restart {
 	Restart-Computer
 	Start-Sleep 2
 	Write-Host "Something seems to have went wrong restarting automatically, restart manually." -ForegroundColor Red
-	if (!$NoInteraction) { Pause }
+	if (!$NoInteraction) { Read-Pause }
 	exit 9000
 }
 
@@ -126,7 +123,7 @@ $seperator
 
 		function NoRestart {
 			Write-Host "`nIf any packages installed successfully, they will apply next restart." -ForegroundColor Yellow
-			Pause
+			Read-Pause
 		}
 
 		if ($safeModeStatus) {
@@ -156,7 +153,7 @@ $seperator
 		Restart
 	} else {
 		Write-Host "`nChanges will apply next restart." -ForegroundColor Yellow
-		Pause
+		Read-Pause
 		exit $script:errorLevel
 	}
 }
@@ -220,7 +217,7 @@ if ($InstallPackages) {
 
 	if ($matchedPackages.Count -eq 0) {
 		Write-Host "[ERROR] The specified CABs ($InstallPackages) to install weren't found." -ForegroundColor Red
-		if (!$NoInteraction) { Pause }
+		if (!$NoInteraction) { Read-Pause }
 		exit 1
 	}
 	if ($notMatchedPackages.Count -gt 0) {
@@ -255,21 +252,15 @@ if ($SafeMode) {
 }
 
 if ($FailMessage) {
-	Add-Type -AssemblyName PresentationFramework
-	$body = "It appears that there was an issue while attempting to disable certain Windows components.
+	$body = @"
+It appears that there was an issue while attempting to disable certain Windows components.
 
-Would you like to restart your system into Safe Mode and try again? This process should not take much time.
+Would you like Atlas to restart your system into Safe Mode and try again? This process shouldn't take much time.
 
-Please note that if you chose to disable Windows Defender, it may still remain enabled if you select 'No'. However, you can always try disabling it later in the Atlas folder."
+Please note that if you chose to disable Windows Defender, it may still remain enabled if you select 'No'. However, you can always try disabling it later in the Atlas folder.
+"@
 
-	$result = [System.Windows.MessageBox]::Show(
-		$body,
-		"Atlas - Component Modification",
-		[System.Windows.MessageBoxButton]::YesNo,
-		[System.Windows.MessageBoxImage]::Question
-	)
-
-	if ($result -eq 'Yes') {
+	if ((Read-MessageBox -Title "Atlas - Component Modification" -Body $body -Icon Question) -eq 'Yes') {
 		SafeMode -Enable
 		Restart
 	}
@@ -282,7 +273,7 @@ Please note that if you chose to disable Windows Defender, it may still remain e
 # ======================================================================================================================= #
 if (!$matchedPackages) {
 	Write-Host "This will install specified CBS packages online, meaning live on your current install of Windows." -ForegroundColor Yellow
-	Pause "Press Enter to continue"
+	Read-Pause "Press Enter to continue"
 	
 	Write-Host "`n[INFO] Opening file dialog to select CBS package CAB..."
 	Add-Type -AssemblyName System.Windows.Forms
@@ -342,14 +333,14 @@ function ProcessCab($cabPath) {
 # https://github.com/Atlas-OS/Atlas/issues/1103
 function MakeRepairSource {
 	$version = '38655.38527.65535.65535'
-	$srcPath = "$([Environment]::GetFolderPath('Windows'))\AtlasModules\Packages\WinSxS"
+	$srcPath = "$windir\AtlasModules\Packages\WinSxS"
 
 	Write-Host "`nMaking repair source..." -ForegroundColor Cyan
 	Write-Host ("-" * 84) -ForegroundColor Magenta
 
 	# get list of Atlas manifests
 	Write-Host "[INFO] Getting manifests..."
-	$manifests = Get-ChildItem "$([Environment]::GetFolderPath('Windows'))\WinSxS\Manifests" -File -Filter "*$version*"
+	$manifests = Get-ChildItem "$windir\WinSxS\Manifests" -File -Filter "*$version*"
 	if ($manifests.Count -eq 0) {
 		Write-Host "[WARN] No manifests found! Can't create repair source." -ForegroundColor Yellow
 		return $false

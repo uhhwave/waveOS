@@ -1,4 +1,6 @@
-& "$([Environment]::GetFolderPath('Windows'))\AtlasModules\Scripts\wingetCheck.cmd"
+$windir = [Environment]::GetFolderPath('Windows')
+& "$windir\AtlasModules\initPowerShell.ps1"
+& "$windir\AtlasModules\Scripts\wingetCheck.cmd"
 if ($LASTEXITCODE -ne 0) { exit 1 }
 
 Clear-Host
@@ -176,6 +178,9 @@ init_item "Snipping Tool" "9MZ95KL8MR0L"
 # https://winget.run/pkg/valinet/ExplorerPatcher
 init_item "ExplorerPatcher" "valinet.ExplorerPatcher"
 
+# https://winget.run/pkg/Microsoft/PowerShell
+init_item "Powershell 7" "Microsoft.PowerShell"
+
 if ([System.Environment]::OSVersion.Version.Build -ge 22000) {
     # https://winget.run/pkg/StartIsBack/StartAllBack
     init_item "StartAllBack" "StartIsBack.StartAllBack"
@@ -261,7 +266,7 @@ $InstallButton.Text = "Install"
 $InstallButton.Add_Click({
     $checkedBoxes = $Form.Controls | Where-Object { $_ -is [System.Windows.Forms.Checkbox] -and $_.Checked }
     if ($checkedBoxes.Count -eq 0) {
-        [System.Windows.Forms.MessageBox]::Show("Please select at least one software package to install.", "No package selected", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
+        Read-MessageBox -Title "No package selected" -Body 'Please select at least one software package to install' -Icon Information -Buttons Ok | Out-Null
     }
     else {
         $global:install = $true

@@ -8,19 +8,10 @@ actions:
     option: liveLogON
   # Warn user if their Windows install is old
   - !powerShell:
-    command: |
-      if ((gp 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\OEMInformation' -Name 'Model' -EA 0).Model -notmatch 'Atlas') {
-        if (20 -lt ((Get-Date) - (gcim Win32_OperatingSystem).InstallDate).Days) {
-          @'
-      Windows seems to have been installed a while ago. A full Windows reinstall is highly recommended to ensure your initial install of Atlas works without problems.
-
-      Atlas will install anyways, but remember this if there's issues.
-
-      Follow our installation guide: https://docs.atlasos.net/getting-started/installation/
-      '@ | msg *
-          }
-      }
+    command: '.\PREREQUISITES.ps1; exit $lastexitcode'
+    exeDir: true
     wait: true
+    handleExitCodes: {11: halt, 10: log}
 
   - !writeStatus: {status: 'Copying files'}
   - !cmd:
@@ -28,11 +19,13 @@ actions:
     weight: 10
     wait: true
     exeDir: true
+    handleExitCodes: {'>1': halt}
   - !cmd:
     command: 'robocopy "AtlasDesktop" "%windir%\AtlasDesktop" /E /PURGE /IM /IT /NP > nul'
     weight: 10
     wait: true
     exeDir: true
+    handleExitCodes: {'>1': halt}
   - !cmd:
     command: 'copy /y "Themes" "%windir%\Resources\Themes" > nul'
     weight: 10
@@ -50,20 +43,23 @@ actions:
 
     # Prevent computer from going to sleep during deployment
   - !powerShell: 
-    command: >-
-      $guid = New-Guid;
-      """$guid""" | Out-File -Force -LiteralPath """$([Environment]::GetFolderPath('Windows'))\atlasospowercfgguid""";
-      powercfg /duplicatescheme """e9a42b02-d5df-448d-aa00-03f14749eb61""" """$guid""";
-      powercfg /setactive """$guid""";
-      powercfg /changename """$guid""" """Atlas Installation Scheme""" """Duplicate of Ultimate Performance used during Atlas installation.""";
-      powercfg /x monitor-timeout-ac 0;
-      powercfg /x monitor-timeout-dc 0;
-      powercfg /x disk-timeout-ac 0;
-      powercfg /x disk-timeout-dc 0;
-      powercfg /x standby-timeout-ac 0;
-      powercfg /x standby-timeout-dc 0;
-      powercfg /x hibernate-timeout-ac 0;
-      powercfg /x hibernate-timeout-dc 0;
+    command: |
+      $guid = New-Guid
+      """$guid""" | Out-File -Force -LiteralPath """$([Environment]::GetFolderPath('Windows'))\atlasospowercfgguid"""
+      powercfg /duplicatescheme """e9a42b02-d5df-448d-aa00-03f14749eb61""" """$guid"""
+      powercfg /setactive """$guid"""
+      powercfg /changename """$guid""" """Atlas Installation Scheme""" """Duplicate of Ultimate Performance used during Atlas installation."""
+
+      @(
+        'monitor-timeout-ac 0',
+        'monitor-timeout-dc 0',
+        'disk-timeout-ac 0',
+        'disk-timeout-dc 0',
+        'standby-timeout-ac 0',
+        'standby-timeout-dc 0',
+        'hibernate-timeout-ac 0',
+        'hibernate-timeout-dc 0'
+      ) | Foreach-Object { powercfg /x $_ }
 
   # Configure PowerShell first so that other PowerShell scripts work
   # NGEN - .NET assemblies PowerShell optimization
@@ -71,10 +67,13 @@ actions:
   - !task: {path: 'tweaks\scripts\script-ngen.yml'}
   - !task: {path: 'tweaks\qol\config-powershell.yml'}
 
-  # Cleanup script takes longer to finish so it has its own status
-  # It's ran here as you can't check when cleanmgr is finished
+  # Disk Cleanup is run first so it can run in the background
   - !writeStatus: {status: 'Cleaning up'}
-  - !task: {path: 'tweaks\scripts\script-cleanup.yml'}
+  - !powerShell:
+    command: '.\CLEANUP.ps1'
+    exeDir: true
+    wait: true
+    runas: currentUserElevated
 
   # Set hidden Settings pages
   # Done before everything else as scripts will overwrite it

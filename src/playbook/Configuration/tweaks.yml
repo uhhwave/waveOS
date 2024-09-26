@@ -3,7 +3,7 @@ title: Tweaks Root Playbook File
 description: Runs all of the Atlas playbook tweaks
 actions:
   # ------------------------- NOTES ------------------------- #
- 
+
   # - Each root folder has its own AME Wizard status
   # - You can disable a certain YAML file by commenting it out
   # - The playbook files are ran in order
@@ -58,7 +58,6 @@ actions:
   # -------------------------------------------------------------------------- #
   #  performance\system                                                        #
   # -------------------------------------------------------------------------- #
-  - !task: {path: 'tweaks\performance\system\config-boot-config.yml'}
   # Disabled as there's no evidence it helps (likely placebo)
   # note from wave: this could actually worsen system stability
   # as the system is more likely to run out of ram quicker
@@ -149,6 +148,7 @@ actions:
   # with modifying the graphical user interface (GUI).
   # -----------------------------------------------------
   - !writeStatus: {status: 'Running QoL tweaks'}
+  - !task: {path: 'tweaks\qol\bcdedit-tweaks.yml'}
   - !task: {path: 'tweaks\qol\best-wallpaper-quality.yml'}
   - !task: {path: 'tweaks\qol\config-start-menu.yml'}
   - !task: {path: 'tweaks\qol\config-windows-ink-workspace.yml'}
@@ -222,6 +222,7 @@ actions:
   - !task: {path: 'tweaks\qol\explorer\use-compact-mode.yml'}
   - !task: {path: 'tweaks\qol\explorer\disable-gallery.yml'}
   - !task: {path: 'tweaks\qol\explorer\debloat-send-to.yml'}
+  - !task: {path: 'tweaks\qol\explorer\enable-long-paths.yml'}
 
   # -------------------------------------------------------------------------- #
   #  qol\explorer\add-context-menus                                            #
@@ -235,7 +236,7 @@ actions:
   #  qol\explorer\remove-context-menus                                         #
   # -------------------------------------------------------------------------- #
   - !task: {path: 'tweaks\qol\explorer\remove-context-menus\cast-to-device.yml'}
-  - !task: {path: 'tweaks\qol\explorer\remove-context-menus\extract-all.yml'}
+  - !task: {path: 'tweaks\qol\explorer\remove-context-menus\extract.yml'}
   - !task: {path: 'tweaks\qol\explorer\remove-context-menus\include-in-library.yml'}
   - !task: {path: 'tweaks\qol\explorer\remove-context-menus\new-bitmap.yml'}
   - !task: {path: 'tweaks\qol\explorer\remove-context-menus\new-rtf.yml'}
